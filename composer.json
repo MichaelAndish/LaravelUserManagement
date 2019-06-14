@@ -1,0 +1,15 @@
+{
+    "name": "mekaeil/laravel-user-management",
+    "description": "With this package we can manage all of the users in our project.",
+    "type": "project",
+    "require": {
+        "spatie/laravel-permission": "^2.37"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mekaeil",
+            "email": "maikel1370@gmail.com"
+        }
+    ]
+}
