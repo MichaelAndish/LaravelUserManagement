@@ -18,6 +18,28 @@ In "LaravelUserManagement" package we create all of the DB Tables, Entities, See
 
 ....
 
+# Installation
+
+1. Install the package via composer:
+```
+composer create-project mekaeil/laravel-user-management
+```
+2. Add the service providers in your config/app.php file:
+```
+'providers' => [
+    // ...
+    Spatie\Permission\PermissionServiceProvider::class,
+    \Mekaeil\LaravelUserManagement\LaravelUserManagementProvider::class,
+];
+```
+3. Run this command for publish vendor:
+```
+php artisan vendor:publish --provider="Mekaeil\LaravelUserManagement\LaravelUserManagementProvider" 
+```
+4. After publishing vendors, now run this command:
+```
+.... :) 
+```
 
 
 
