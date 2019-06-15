@@ -1,0 +1,29 @@
+<?php
+
+namespace Mekaeil\LaravelUserManagement\Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
+
+class UserManagementDatabaseSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Model::unguard();
+
+        /*
+        |--------------------------------------------------------------------------
+        |  PERMISSIONS USER MANAGEMENT
+        |--------------------------------------------------------------------------
+        |
+        */            
+
+
+        
+    }
+}
