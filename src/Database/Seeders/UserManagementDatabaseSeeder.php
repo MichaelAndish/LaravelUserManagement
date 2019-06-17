@@ -23,7 +23,7 @@ class UserManagementDatabaseSeeder extends Seeder
         |
         */            
 
-
+        
         
     }
 }

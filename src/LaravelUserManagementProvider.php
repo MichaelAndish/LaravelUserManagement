@@ -31,10 +31,10 @@ class LaravelUserManagementProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
 
         ////    SET CONFIG ROUTE
-        $this->mergeConfigFrom([
-            __DIR__ . '/config/laravel-user-management.php','laravel-user-management',
-            __DIR__ . '/config/permission.php','permission',
-        ]);
+        // $this->mergeConfigFrom([
+            // __DIR__ . '/config/laravel_user_management.php',
+            // __DIR__ . '/config/permission.php','permission',
+        // ]);
 
 
         /// PUBLISH SECTION
@@ -47,7 +47,7 @@ class LaravelUserManagementProvider extends ServiceProvider
 
             /// CONFIG
             $this->publishes([
-                __DIR__ . '/Config/laravel-user-management.php' => config_path('laravel-user-management.php'),
+                __DIR__ . '/Config/laravel_user_management.php' => config_path('laravel_user_management.php'),
                 __DIR__ . '/Config/permission.php' => config_path('permission.php'),
 
             ]);

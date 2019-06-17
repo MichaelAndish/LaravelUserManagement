@@ -9,12 +9,13 @@ return [
     |   
     |
     */
-
+        // laravel_user_management.users_table
         'users_table'               => 'users',
         'user_model'                => \Mekaeil\LaravelUserManagement\Entities\User::class,
         'users_id_table'            => 'id',
         'user_password_coumn_name'  => 'password', // FOR SET BCRYPT IN USER MODEL
 
+        // laravel_user_management.fillables_column
         'fillables_column' => [
             'first_name',
             'last_name',
@@ -27,6 +28,7 @@ return [
             'email_verified',
         ],
 
+        // laravel_user_management.migrations_columns
         'migrations_columns' => [
             [
                 'type'      => 'string',
