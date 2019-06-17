@@ -36,11 +36,25 @@ composer create-project mekaeil/laravel-user-management
 ```
 php artisan vendor:publish --provider="Mekaeil\LaravelUserManagement\LaravelUserManagementProvider" 
 ```
-4. After publishing vendors, now run this command:
+4. After publishing vendors, add this code to "run" method in <b>database/DatabaseSeeder.php</b>
 ```
-.... :) 
+public function run()
+{
+    /*
+    |--------------------------------------------------------------------------
+    |  SEEDERS FOR LARAVEL USER MANAGEMENT
+    |--------------------------------------------------------------------------
+    |
+    */
+        $this->call(RoleTableSeeder::class);
+        $this->call(PermissionTableSeeder::class);
+}
 ```
-
+5. After all of the steps run these commands ordinary.
+```
+    5.1     php artisan migrate
+    5.2     php artisan db:seed
+```
 
 
 ## License

@@ -3,13 +3,14 @@
 namespace Mekaeil\LaravelUserManagement\seeders\Permission;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class MasterPermissionTableSeeder extends Seeder
 {
     protected $permissions = [];
+    protected $guardName   = "web";
 
-    private function getPermissions()
-    {
+    protected function getPermissions(){
         return $this->permissions;
     }
     /**
@@ -19,6 +20,125 @@ class MasterPermissionTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Model::unguard();
+
+        $this->command->info('=============================================================');
+        $this->command->info('USER MODULE: INSERT PERMISSIONS DATA');
+        $this->command->info('=============================================================');
+        $this->command->info("\n");
+
+        $rolePermissions = array();
+
+        foreach ($this->getPermissions() as $permission)
+        {
+
+            /// WHEN WE NEED A PERMISSION FOR DIFFERENT GUARD NAMES
+            //////////////////////////////////////////////////////////
+            if (is_array($permission['guard_name'])) {
+
+                foreach ($permission['guard_name'] as $guard) {
+
+                    $rolePermissions = $this->setPermissions($permission,$guard);
+
+                    $this->command->info('  THIS PERMISSION <<' . array_keys($rolePermissions)[0] . ' >> ASSIGNED TO THESE ROLES <<<< '. implode(' - ', $rolePermissions[array_keys($rolePermissions)[0]]) . ' >>> GUARD NAME = ' . $guard);
+                    $permObject = Permission::where('name', array_keys($rolePermissions)[0] )
+                        ->where('guard_name',$guard)
+                        ->first();
+                    $permObject->syncRoles( $this->getRolesID($rolePermissions[array_keys($rolePermissions)[0]],$guard) );
+                }
+
+                continue;
+            }
+
+            $rolePermissions = $this->setPermissions($permission,$permission['guard_name']);
+            $this->guardName = $permission['guard_name'];
+
+            /*
+            |--------------------------------------------------------------------------
+            |  UPDATE ROLES'S PERMISSIONS
+            |--------------------------------------------------------------------------
+            |
+            */
+
+            if (!empty($rolePermissions))
+            {
+
+                $this->command->info("\n");
+                $this->command->info('        *********************************************        ');
+                $this->command->info('               UPDATING ROLE\'S PERMISSIONS                  ');
+                $this->command->info('        *********************************************        ');
+                $this->command->info("\n");
+                foreach ($rolePermissions as $perm => $roles)
+                {
+                    $this->command->info('  THIS PERMISSION <<' . $perm . ' >> ASSIGNED TO THESE ROLES <<<< '. implode(' - ', $roles) . ' >>> GUARD NAME = ' . $this->guardName);
+                    $permObject = Permission::where('name',$perm)->first();
+                    $permObject->syncRoles( $this->getRolesID($roles,$this->guardName) );
+                }
+
+                $this->command->info("\n");
+                $this->command->info('        *********************************************        ');
+                $this->command->info('           FINALIZED UPDATING ROLE\'S PERMISSIONS            ');
+                $this->command->info('        *********************************************        ');
+            }
+
+        }
+
+        $this->command->info("\n");
+        $this->command->info('=============================================================');
+        $this->command->info('INSERTING PERMISSIONS FINALIZED!');
+        $this->command->info('=============================================================');
+        $this->command->info("\n");
     }
+
+    private function setPermissions(array $permission , $guard = null)
+    {
+        $getGuard       = $guard ?? $permission['guard_name'];
+        $getPermission  = Permission::where('name',$permission['name'])
+            ->where('guard_name',$getGuard)->first();
+
+        if (! is_null($getPermission))
+        {
+            $this->command->info('THIS PERMISSION << ' . $permission['name'] . ' >> EXISTED! UPDATING DATA ...');
+
+            $getPermission->update([
+                'name'          => $permission['name'],
+                'guard_name'    => $guard ?? $permission['guard_name'],
+                'display_name'  => isset($permission['display_name']) ? $permission['display_name'] : null ,
+                'module'        => isset($permission['module']) ? $permission['module'] : null ,
+                'description'   => isset($permission['description']) ? $permission['description'] : null ,
+            ]);
+
+            $rolePermissions[$permission['name']] = array_values($permission['roles']) ?? null ;
+
+            return $rolePermissions;
+        }
+
+        $this->command->info('CREATING THIS PERMISSION <<' . $permission['name'] . ' >> ...');
+
+        Permission::create([
+            'name'          => $permission['name'],
+            'guard_name'    => $getGuard,
+            'display_name'  => isset($permission['display_name']) ? $permission['display_name'] : null ,
+            'module'        => isset($permission['module']) ? $permission['module'] : null ,
+            'description'   => isset($permission['description']) ? $permission['description'] : null ,
+        ]);
+
+
+        $rolePermissions[$permission['name']] = array_values($permission['roles']) ?? null ;
+
+        return $rolePermissions;
+    }
+
+
+    private function getRolesID(array $roles, $guard)
+    {
+        $roleIDs    = array();
+        $roleIDs[]  = \Cache::get('roles')[env('OWNER_NAME','owner')];
+        foreach ($roles as $role)
+        {
+            $roleIDs[] = optional(Role::where('name', $role)->where('guard_name', $guard)->first())->id;
+        }
+        return array_values($roleIDs);
+    }
+
 }
