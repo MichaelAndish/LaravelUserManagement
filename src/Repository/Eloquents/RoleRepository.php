@@ -1,22 +1,15 @@
 <?php
 
-namespace Modules\Base\Repository\Eloquents\User;
+namespace Mekaeil\LaravelUserManagement\Repository\Eloquents;
 
-use Modules\Base\Repository\Contracts\EloquentBaseRepository;
-use Modules\Base\Repository\Contracts\RoleRepositoryInterface;
-use Modules\User\Entities\Role;
+use App\Entities\Role;
+use Mekaeil\LaravelUserManagement\Repository\Eloquents\BaseEloquentRepository;
+use Mekaeil\LaravelUserManagement\Repository\Contracts\RoleRepositoryInterface;
 
-
-class RoleRepository extends EloquentBaseRepository implements RoleRepositoryInterface
+class RoleRepository extends BaseEloquentRepository implements RoleRepositoryInterface
 {
     protected $model = Role::class;
 
-    /**
-     * @param $owner
-     * @param string $method
-     * @param null $roles
-     * @return null
-     */
     public function syncRole($owner, $method = 'syncRoles', $roles = null)
     {
 
@@ -38,12 +31,6 @@ class RoleRepository extends EloquentBaseRepository implements RoleRepositoryInt
         return null;
     }
 
-    /**
-     * @param $owner
-     * @param Role $role
-     * @param bool $assign
-     * @return mixed
-     */
     public function setRoleToMember($owner, $role , $assign = true)
     {
         if ($assign)
@@ -53,7 +40,6 @@ class RoleRepository extends EloquentBaseRepository implements RoleRepositoryInt
 
         return $owner->removeRole($role);
     }
-
 
     public function getAllRolePermissions(Role $role, $method = 'get')
     {

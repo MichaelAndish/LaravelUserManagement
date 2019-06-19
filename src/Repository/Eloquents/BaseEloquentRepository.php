@@ -2,7 +2,7 @@
 
 namespace Mekaeil\LaravelUserManagement\Repository\Eloquents;
 
-use Modules\Base\Repository\Contracts\BaseRepositoryInterface;
+use Mekaeil\LaravelUserManagement\Repository\Contracts\BaseRepositoryInterface;
 
 class BaseEloquentRepository implements BaseRepositoryInterface
 {
