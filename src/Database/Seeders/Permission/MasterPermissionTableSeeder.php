@@ -4,11 +4,24 @@ namespace Mekaeil\LaravelUserManagement\seeders\Permission;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Mekaeil\LaravelUserManagement\Repository\Contracts\PermissionRepositoryInterface;
+use Mekaeil\LaravelUserManagement\Repository\Contracts\RoleRepositoryInterface;
 
 class MasterPermissionTableSeeder extends Seeder
 {
     protected $permissions = [];
     protected $guardName   = "web";
+    protected $permissionRepository;
+    protected $roleRepository;
+
+    public function __construct(
+        PermissionRepositoryInterface $repository,
+        RoleRepositoryInterface $role
+    )
+    {
+        $this->permissionRepository = $repository;
+        $this->roleRepository       = $role;
+    }
 
     protected function getPermissions(){
         return $this->permissions;
@@ -22,9 +35,10 @@ class MasterPermissionTableSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->command->info('=============================================================');
-        $this->command->info('USER MODULE: INSERT PERMISSIONS DATA');
-        $this->command->info('=============================================================');
+        $this->command->info('==========================================================================');
+        $this->command->info('USER MANAGEMENT PACKAGE: INSERT PERMISSIONS DATA');
+        $this->command->info('YOU CAN ADD NEW PERMISSION IN "database/seeds/PermissionTableSeeder.php"');
+        $this->command->info('==========================================================================');
         $this->command->info("\n");
 
         $rolePermissions = array();
@@ -41,9 +55,13 @@ class MasterPermissionTableSeeder extends Seeder
                     $rolePermissions = $this->setPermissions($permission,$guard);
 
                     $this->command->info('  THIS PERMISSION <<' . array_keys($rolePermissions)[0] . ' >> ASSIGNED TO THESE ROLES <<<< '. implode(' - ', $rolePermissions[array_keys($rolePermissions)[0]]) . ' >>> GUARD NAME = ' . $guard);
-                    $permObject = Permission::where('name', array_keys($rolePermissions)[0] )
-                        ->where('guard_name',$guard)
-                        ->first();
+                    $permObject = $this->permissionRepository->findBy([
+                        'name'          => array_keys($rolePermissions)[0],
+                        'guard_name'    => $guard
+                    ]);
+                    // $permObject = Permission::where('name', array_keys($rolePermissions)[0] )
+                    //     ->where('guard_name',$guard)
+                    //     ->first();
                     $permObject->syncRoles( $this->getRolesID($rolePermissions[array_keys($rolePermissions)[0]],$guard) );
                 }
 
@@ -55,7 +73,7 @@ class MasterPermissionTableSeeder extends Seeder
 
             /*
             |--------------------------------------------------------------------------
-            |  UPDATE ROLES'S PERMISSIONS
+            |  UPDATE ROLE'S PERMISSIONS
             |--------------------------------------------------------------------------
             |
             */
@@ -71,7 +89,8 @@ class MasterPermissionTableSeeder extends Seeder
                 foreach ($rolePermissions as $perm => $roles)
                 {
                     $this->command->info('  THIS PERMISSION <<' . $perm . ' >> ASSIGNED TO THESE ROLES <<<< '. implode(' - ', $roles) . ' >>> GUARD NAME = ' . $this->guardName);
-                    $permObject = Permission::where('name',$perm)->first();
+                    $permObject = $this->permissionRepository->findBy(['name' => $perm]);
+                    // $permObject = Permission::where('name',$perm)->first();
                     $permObject->syncRoles( $this->getRolesID($roles,$this->guardName) );
                 }
 
@@ -85,7 +104,7 @@ class MasterPermissionTableSeeder extends Seeder
 
         $this->command->info("\n");
         $this->command->info('=============================================================');
-        $this->command->info('INSERTING PERMISSIONS FINALIZED!');
+        $this->command->info('      INSERTING PERMISSIONS FINALIZED!');
         $this->command->info('=============================================================');
         $this->command->info("\n");
     }
@@ -93,20 +112,31 @@ class MasterPermissionTableSeeder extends Seeder
     private function setPermissions(array $permission , $guard = null)
     {
         $getGuard       = $guard ?? $permission['guard_name'];
-        $getPermission  = Permission::where('name',$permission['name'])
-            ->where('guard_name',$getGuard)->first();
+        $getPermission  = $this->permissionRepository->findBy([
+            'name'      => $permission['name'],
+            'guard_name'=> $getGuard
+        ]);
+        // $getPermission  = Permission::where('name',$permission['name'])
+            // ->where('guard_name',$getGuard)->first();
 
         if (! is_null($getPermission))
         {
             $this->command->info('THIS PERMISSION << ' . $permission['name'] . ' >> EXISTED! UPDATING DATA ...');
 
-            $getPermission->update([
+            $this->permissionRepository->update($getPermission->id,[
                 'name'          => $permission['name'],
                 'guard_name'    => $guard ?? $permission['guard_name'],
-                'display_name'  => isset($permission['display_name']) ? $permission['display_name'] : null ,
+                'title'         => isset($permission['title']) ? $permission['title'] : null ,
                 'module'        => isset($permission['module']) ? $permission['module'] : null ,
-                'description'   => isset($permission['description']) ? $permission['description'] : null ,
+                'description'   => isset($permission['description']) ? $permission['description'] : null ,                
             ]);
+            // $getPermission->update([
+            //     'name'          => $permission['name'],
+            //     'guard_name'    => $guard ?? $permission['guard_name'],
+            //     'title'         => isset($permission['title']) ? $permission['title'] : null ,
+            //     'module'        => isset($permission['module']) ? $permission['module'] : null ,
+            //     'description'   => isset($permission['description']) ? $permission['description'] : null ,
+            // ]);
 
             $rolePermissions[$permission['name']] = array_values($permission['roles']) ?? null ;
 
@@ -115,14 +145,21 @@ class MasterPermissionTableSeeder extends Seeder
 
         $this->command->info('CREATING THIS PERMISSION <<' . $permission['name'] . ' >> ...');
 
-        Permission::create([
+        $this->permissionRepository->store([
             'name'          => $permission['name'],
             'guard_name'    => $getGuard,
-            'display_name'  => isset($permission['display_name']) ? $permission['display_name'] : null ,
+            'title'         => isset($permission['title']) ? $permission['title'] : null ,
             'module'        => isset($permission['module']) ? $permission['module'] : null ,
-            'description'   => isset($permission['description']) ? $permission['description'] : null ,
+            'description'   => isset($permission['description']) ? $permission['description'] : null ,            
         ]);
 
+        // Permission::create([
+        //     'name'          => $permission['name'],
+        //     'guard_name'    => $getGuard,
+        //     'title'         => isset($permission['title']) ? $permission['title'] : null ,
+        //     'module'        => isset($permission['module']) ? $permission['module'] : null ,
+        //     'description'   => isset($permission['description']) ? $permission['description'] : null ,
+        // ]);
 
         $rolePermissions[$permission['name']] = array_values($permission['roles']) ?? null ;
 
@@ -133,7 +170,6 @@ class MasterPermissionTableSeeder extends Seeder
     private function getRolesID(array $roles, $guard)
     {
         $roleIDs    = array();
-        $roleIDs[]  = \Cache::get('roles')[env('OWNER_NAME','owner')];
         foreach ($roles as $role)
         {
             $roleIDs[] = optional(Role::where('name', $role)->where('guard_name', $guard)->first())->id;

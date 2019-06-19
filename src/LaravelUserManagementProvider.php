@@ -5,6 +5,18 @@ namespace Mekaeil\LaravelUserManagement;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Mekaeil\LaravelUserManagement\Facade\UserManagement;
+// USER 
+use Mekaeil\LaravelUserManagement\Repository\Contracts\UserRepositoryInterface;
+use Mekaeil\LaravelUserManagement\Repository\Eloquents\UserRepository;
+// DEPARTMENT
+use Mekaeil\LaravelUserManagement\Repository\Contracts\DepartmentRepositoryInterface;
+use Mekaeil\LaravelUserManagement\Repository\Eloquents\DepartmentRepository;
+// PERMISSION
+use Mekaeil\LaravelUserManagement\Repository\Contracts\PermissionRepositoryInterface;
+use Mekaeil\LaravelUserManagement\Repository\Eloquents\PermissionRepository;
+// ROLE
+use Mekaeil\LaravelUserManagement\Repository\Contracts\RoleRepositoryInterface;
+use Mekaeil\LaravelUserManagement\Repository\Eloquents\RoleRepository;
 
 class LaravelUserManagementProvider extends ServiceProvider
 {
@@ -34,12 +46,14 @@ class LaravelUserManagementProvider extends ServiceProvider
                 __DIR__ . '/Routes/route.user_management.php' => app_path('/../routes/route.user_management.php'),
                 // CONFIGS
                 __DIR__ . '/Config/laravel_user_management.php' => config_path('laravel_user_management.php'),
-                __DIR__ . '/Config/permission.php'              => config_path('permission.php'),
+                __DIR__ . '/Config/permission.php'  => config_path('permission.php'),
                 // MIGRATIONS
-                __DIR__ . '/Database/Migrations/'              => database_path('migrations/'),
+                __DIR__ . '/Database/Migrations/'   => database_path('migrations/'),
+                // ENTITIES
+                __DIR__ . '/Entities/export/'   => app_path('Entities/'),
                 // SEEDS
                 __DIR__ . '/Database/Seeders/Permission/PermissionTableSeeder.php'  => database_path('seeds/PermissionTableSeeder.php'),
-                __DIR__ . '/Database/Seeders/Role/RoleTableSeeder.php'              => database_path('seeds/RoleTableSeeder.php'),
+                __DIR__ . '/Database/Seeders/Role/RoleTableSeeder.php'  => database_path('seeds/RoleTableSeeder.php'),
                 // VIEWS
             ]);
 
@@ -57,5 +71,11 @@ class LaravelUserManagementProvider extends ServiceProvider
             return new UserManagement();
         });
 
+        ////    BIND ABSTRACT TO CONCRETE (IOC CONTAINER WILL HANDLE IT)
+        $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(DepartmentRepositoryInterface::class, DepartmentRepository::class);
+        $this->app->bind(PermissionRepositoryInterface::class, PermissionRepository::class);
+        $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
+        
     }
 }

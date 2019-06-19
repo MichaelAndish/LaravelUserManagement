@@ -1,19 +1,18 @@
 <?php
 
-namespace Mekaeil\LaravelUserManagement\seeders\Permission;
+namespace Mekaeil\LaravelUserManagement\seeders\User;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use Mekaeil\LaravelUserManagement\Repository\Contracts\RoleRepositoryInterface;
 
-class MasterRoleTableSeeder extends Seeder
+class MasterUserTableSeeder extends Seeder
 {
     protected $roles = [];
     protected $roleRepository;
 
-    public function __construct(RoleRepositoryInterface $repository)
+    public function __construct()
     {
-        $this->roleRepository = $repository;
+        
     }
 
     protected function getRoles()

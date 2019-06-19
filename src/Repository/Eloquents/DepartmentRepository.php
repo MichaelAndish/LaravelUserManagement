@@ -2,17 +2,14 @@
 
 namespace Mekaeil\LaravelUserManagement\Repository\Eloquents;
 
-class DepartmentRepository extends EloquentBaseRepository implements DepartmentRepositoryInterface
+use App\Entities\Department;
+use Mekaeil\LaravelUserManagement\Repository\Eloquents\BaseEloquentRepository;
+use Mekaeil\LaravelUserManagement\Repository\Contracts\DepartmentRepositoryInterface;
+
+class DepartmentRepository extends BaseEloquentRepository implements DepartmentRepositoryInterface
 {
-    protected $model;
+    protected $model = Department::class;
 
-
-    /**
-     * @param $owner
-     * @param string $method
-     * @param null $roles
-     * @return null
-     */
     public function syncDepartment($owner, $method = 'sync', $userID = null)
     {
         return $owner->users()->{$method}($userID);

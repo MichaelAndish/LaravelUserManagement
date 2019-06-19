@@ -28,7 +28,6 @@ composer create-project mekaeil/laravel-user-management
 ```
 'providers' => [
     // ...
-    Spatie\Permission\PermissionServiceProvider::class,
     \Mekaeil\LaravelUserManagement\LaravelUserManagementProvider::class,
 ];
 ```
