@@ -59,9 +59,6 @@ class MasterPermissionTableSeeder extends Seeder
                         'name'          => array_keys($rolePermissions)[0],
                         'guard_name'    => $guard
                     ]);
-                    // $permObject = Permission::where('name', array_keys($rolePermissions)[0] )
-                    //     ->where('guard_name',$guard)
-                    //     ->first();
                     $permObject->syncRoles( $this->getRolesID($rolePermissions[array_keys($rolePermissions)[0]],$guard) );
                 }
 
@@ -90,7 +87,6 @@ class MasterPermissionTableSeeder extends Seeder
                 {
                     $this->command->info('  THIS PERMISSION <<' . $perm . ' >> ASSIGNED TO THESE ROLES <<<< '. implode(' - ', $roles) . ' >>> GUARD NAME = ' . $this->guardName);
                     $permObject = $this->permissionRepository->findBy(['name' => $perm]);
-                    // $permObject = Permission::where('name',$perm)->first();
                     $permObject->syncRoles( $this->getRolesID($roles,$this->guardName) );
                 }
 
@@ -116,8 +112,6 @@ class MasterPermissionTableSeeder extends Seeder
             'name'      => $permission['name'],
             'guard_name'=> $getGuard
         ]);
-        // $getPermission  = Permission::where('name',$permission['name'])
-            // ->where('guard_name',$getGuard)->first();
 
         if (! is_null($getPermission))
         {
@@ -130,13 +124,6 @@ class MasterPermissionTableSeeder extends Seeder
                 'module'        => isset($permission['module']) ? $permission['module'] : null ,
                 'description'   => isset($permission['description']) ? $permission['description'] : null ,                
             ]);
-            // $getPermission->update([
-            //     'name'          => $permission['name'],
-            //     'guard_name'    => $guard ?? $permission['guard_name'],
-            //     'title'         => isset($permission['title']) ? $permission['title'] : null ,
-            //     'module'        => isset($permission['module']) ? $permission['module'] : null ,
-            //     'description'   => isset($permission['description']) ? $permission['description'] : null ,
-            // ]);
 
             $rolePermissions[$permission['name']] = array_values($permission['roles']) ?? null ;
 
@@ -153,14 +140,6 @@ class MasterPermissionTableSeeder extends Seeder
             'description'   => isset($permission['description']) ? $permission['description'] : null ,            
         ]);
 
-        // Permission::create([
-        //     'name'          => $permission['name'],
-        //     'guard_name'    => $getGuard,
-        //     'title'         => isset($permission['title']) ? $permission['title'] : null ,
-        //     'module'        => isset($permission['module']) ? $permission['module'] : null ,
-        //     'description'   => isset($permission['description']) ? $permission['description'] : null ,
-        // ]);
-
         $rolePermissions[$permission['name']] = array_values($permission['roles']) ?? null ;
 
         return $rolePermissions;
@@ -172,7 +151,6 @@ class MasterPermissionTableSeeder extends Seeder
         $roleIDs    = array();
         foreach ($roles as $role)
         {
-            // $roleIDs[] = optional(Role::where('name', $role)->where('guard_name', $guard)->first())->id;
             $findRole = $this->roleRepository->findBy([
                 'name'       => $role,
                 'guard_name' => $guard

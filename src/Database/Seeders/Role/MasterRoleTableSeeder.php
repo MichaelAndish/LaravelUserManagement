@@ -37,9 +37,6 @@ class MasterRoleTableSeeder extends Seeder
 
         foreach ($this->getRoles() as $role)
         {
-            // $findRole = Role::where('name',$role['name'])
-            //     ->where('guard_name',$role['guard_name'])
-            //     ->first();
             $findRole = $this->roleRepository->findBy([
                 'name'       => $role['name'],
                 'guard_name' => $role['guard_name']
@@ -51,16 +48,10 @@ class MasterRoleTableSeeder extends Seeder
 
                 $this->roleRepository->update($findRole->id,[
                     'name'          => $role['name'],
-                    'display_name'  => $role['display_name'],
+                    'title'         => $role['title'],
                     'guard_name'    => $role['guard_name'],
                     'description'   => isset($role['description']) ? $role['description'] : null,
                 ]);
-                // $findRole->update([
-                //     'name'          => $role['name'],
-                //     'display_name'  => $role['display_name'],
-                //     'guard_name'    => $role['guard_name'],
-                //     'description'   => isset($role['description']) ? $role['description'] : null,
-                // ]);
 
                 continue;
             }
@@ -69,16 +60,10 @@ class MasterRoleTableSeeder extends Seeder
 
             $this->roleRepository->store([
                 'name'          => $role['name'],
-                'display_name'  => $role['display_name'],
+                'title'         => $role['title'],
                 'guard_name'    => $role['guard_name'],
                 'description'   => isset($role['description']) ? $role['description'] : null,
             ]);
-            // Role::create([
-            //     'name'          => $role['name'],
-            //     'display_name'  => $role['display_name'],
-            //     'guard_name'    => $role['guard_name'],
-            //     'description'   => isset($role['description']) ? $role['description'] : null,
-            // ]);
 
         }
 

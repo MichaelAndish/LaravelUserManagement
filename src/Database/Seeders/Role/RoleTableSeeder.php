@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Mekaeil\LaravelUserManagement\seeders\Permission\MasterRoleTableSeeder;
 class RoleTableSeeder extends MasterRoleTableSeeder
 {
-    protected $permissions = [
+    protected $roles = [
         [
             'name'          => "Admin",
             'title'         => "Administrator",
