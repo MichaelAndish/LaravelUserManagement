@@ -7,17 +7,15 @@ class PermissionTableSeeder extends MasterPermissionTableSeeder
 {
     protected $permissions = [
         [
-            [
-                'name'          => 'admin.manager',
-                'display_name'  => 'مدیریت بخش‌های ادمین',
-                'guard_name'    => 'api',
-                'description'   => 'این دسترسی جهت مشاهده بخش‌های عمومی ادمین ایجاد شده است.',
-                'module'        => 'User',
-                'roles'         => [
-                    'Admin',
-                ],
+            'name'          => 'admin.manager',
+            'display_name'  => 'پنل مدیریت',
+            'guard_name'    => 'web',
+            'description'   => 'این مجوز برای دسترسی کاربر به ادمین می‌باشد.',
+            'module'        => 'User',
+            'roles'         => [
+                'Admin',
             ],
-        ]
+        ],
     ];
 
     
