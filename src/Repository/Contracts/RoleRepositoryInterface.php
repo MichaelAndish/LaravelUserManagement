@@ -2,8 +2,7 @@
 
 namespace Mekaeil\LaravelUserManagement\Repository\Contracts;
 
-
-interface RoleRepositoryInterface extends RepositoryInterface
+interface RoleRepositoryInterface extends BaseRepositoryInterface
 {
 
 }

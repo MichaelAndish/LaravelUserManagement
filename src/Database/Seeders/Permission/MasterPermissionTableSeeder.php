@@ -172,7 +172,12 @@ class MasterPermissionTableSeeder extends Seeder
         $roleIDs    = array();
         foreach ($roles as $role)
         {
-            $roleIDs[] = optional(Role::where('name', $role)->where('guard_name', $guard)->first())->id;
+            // $roleIDs[] = optional(Role::where('name', $role)->where('guard_name', $guard)->first())->id;
+            $findRole = $this->roleRepository->findBy([
+                'name'       => $role,
+                'guard_name' => $guard
+            ]);
+            $roleIDs[] = $findRole ? $findRole->id : null;
         }
         return array_values($roleIDs);
     }

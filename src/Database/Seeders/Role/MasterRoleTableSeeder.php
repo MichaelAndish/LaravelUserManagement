@@ -37,40 +37,50 @@ class MasterRoleTableSeeder extends Seeder
 
         foreach ($this->getRoles() as $role)
         {
-            $findRole = Role::where('name',$role['name'])
-                ->where('guard_name',$role['guard_name'])
-                ->first();
+            // $findRole = Role::where('name',$role['name'])
+            //     ->where('guard_name',$role['guard_name'])
+            //     ->first();
+            $findRole = $this->roleRepository->findBy([
+                'name'       => $role['name'],
+                'guard_name' => $role['guard_name']
+            ]);
 
             if ($findRole)
             {
                 $this->command->info('THIS ROLE << ' . $role['name'] .'['. $role['guard_name'] . '] >> EXISTED! UPDATING DATA ...');
 
-
-                $findRole->update([
+                $this->roleRepository->update($findRole->id,[
                     'name'          => $role['name'],
                     'display_name'  => $role['display_name'],
                     'guard_name'    => $role['guard_name'],
                     'description'   => isset($role['description']) ? $role['description'] : null,
                 ]);
+                // $findRole->update([
+                //     'name'          => $role['name'],
+                //     'display_name'  => $role['display_name'],
+                //     'guard_name'    => $role['guard_name'],
+                //     'description'   => isset($role['description']) ? $role['description'] : null,
+                // ]);
 
                 continue;
             }
 
             $this->command->info('CREATING THIS ROLE <<' . $role['name'] .'['. $role['guard_name'] . '] >> ...');
 
-            Role::create([
+            $this->roleRepository->store([
                 'name'          => $role['name'],
                 'display_name'  => $role['display_name'],
                 'guard_name'    => $role['guard_name'],
                 'description'   => isset($role['description']) ? $role['description'] : null,
             ]);
+            // Role::create([
+            //     'name'          => $role['name'],
+            //     'display_name'  => $role['display_name'],
+            //     'guard_name'    => $role['guard_name'],
+            //     'description'   => isset($role['description']) ? $role['description'] : null,
+            // ]);
 
         }
-
-        Cache::forget('roles');
-        Cache::rememberForever('roles', function () {
-            return \DB::table('roles')->get()->pluck('id', 'name')->toArray();
-        });
 
         $this->command->info("\n");
         $this->command->info('=============================================================');

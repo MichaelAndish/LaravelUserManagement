@@ -16,7 +16,6 @@ class CreateUsersTable extends Migration
         $table = config("laravel_user_management.users_table");
         Schema::create($table, function (Blueprint $table) {
             $table->increments('id');
-            $this->createTable(config("laravel_user_management.migrations_columns"));
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->nullable()->unique();
