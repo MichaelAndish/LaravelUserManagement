@@ -36,7 +36,7 @@ class LaravelUserManagementProvider extends ServiceProvider
         ////    SET MIGRATION'S ROUTE
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
-
+        
         /// PUBLISH SECTION
         ////////////////////////////////////////////////////////////////////////////////////////////////////
             

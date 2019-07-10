@@ -19,21 +19,11 @@ return [
          * BETWEEN USERS TABLE & USER DEPARTMENTS TABLE
          * **/
         // laravel_user_management.user_department_user_table
-        'user_department_user_table' =>  'user_departments',
+        'user_department_user_table' =>  'user_departments_users',
         
         // laravel_user_management.user_model    
-        'user_model'            => \Mekaeil\LaravelUserManagement\Entities\User::class,
+        'user_model'            => App\Entities\User::class,
 
-        // laravel_user_management.fillables_column
-        'fillables_column' => [
-            'first_name',
-            'last_name',
-            'password',
-            'email',            
-            'mobile',           
-            'status',           
-            'remember_token',
-            'mobile_verified',
-            'email_verified',
-        ],
+
+        
 ];

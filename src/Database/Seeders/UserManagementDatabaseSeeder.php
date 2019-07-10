@@ -14,16 +14,7 @@ class UserManagementDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-
-        /*
-        |--------------------------------------------------------------------------
-        |  PERMISSIONS USER MANAGEMENT
-        |--------------------------------------------------------------------------
-        |
-        */            
-
-        
+        Model::unguard();        
         
     }
 }
