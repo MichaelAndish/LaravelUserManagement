@@ -28,7 +28,7 @@ class LaravelUserManagementProvider extends ServiceProvider
     public function boot()
     {
         ////    CHECK IF ROUTE EXISTS IN BASE PROJECT USE IT 
-        $this->loadRoutesFrom(__DIR__ . '/routes/route.user_management.php');
+        $this->loadRoutesFrom(__DIR__ . '/routes/user_management.php');
 
         ////    SET VIEW'S ROUTE
         $this->loadViewsFrom(__DIR__ . '/views', 'LaravelUserManagement');
@@ -37,13 +37,14 @@ class LaravelUserManagementProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
         
+        
         /// PUBLISH SECTION
         ////////////////////////////////////////////////////////////////////////////////////////////////////
             
             /// ROUTE
             $this->publishes([
                 //  ROUTE
-                __DIR__ . '/Routes/route.user_management.php' => app_path('/../routes/route.user_management.php'),
+                __DIR__ . '/Routes/user_management.php' => app_path('/../routes/user_management.php'),
                 // CONFIGS
                 __DIR__ . '/Config/laravel_user_management.php' => config_path('laravel_user_management.php'),
                 __DIR__ . '/Config/permission.php'  => config_path('permission.php'),
@@ -55,6 +56,8 @@ class LaravelUserManagementProvider extends ServiceProvider
                 __DIR__ . '/Database/Seeders/Permission/PermissionTableSeeder.php'  => database_path('seeds/PermissionTableSeeder.php'),
                 __DIR__ . '/Database/Seeders/Role/RoleTableSeeder.php'  => database_path('seeds/RoleTableSeeder.php'),
                 // VIEWS
+                __DIR__ . '/Resource/views/'    => resource_path('views'),
+                __DIR__ . '/Public/'            => public_path('/'),
             ]);
 
     }
