@@ -7,22 +7,26 @@
 
 @section('breadcrumb')
     @include('mekaeils-package.layouts.breadcrumb',[
-        'pageTitle' => 'Users',
+        'pageTitle' => 'Create Role',
         'lists' => [
             [
                 'link'  => '#',
                 'name'  => 'User Management',
             ],
             [
+                'link'  => 'admin.user_management.role.index',
+                'name'  => 'Roles',
+            ],
+            [
                 'link'  => '#',
-                'name'  => 'Users',
+                'name'  => 'New role', 
             ]
         ]
     ])
 @endsection
 
 @section('content')
-    <p>Users</p>
+    <p>New Role</p>
 @endsection
 
 

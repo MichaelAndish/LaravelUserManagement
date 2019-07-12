@@ -7,22 +7,26 @@
 
 @section('breadcrumb')
     @include('mekaeils-package.layouts.breadcrumb',[
-        'pageTitle' => 'Users',
+        'pageTitle' => 'Create Permission',
         'lists' => [
             [
                 'link'  => '#',
                 'name'  => 'User Management',
             ],
             [
+                'link'  => 'admin.user_management.permission.index',
+                'name'  => 'Permission',
+            ],
+            [
                 'link'  => '#',
-                'name'  => 'Users',
+                'name'  => 'New permission', 
             ]
         ]
     ])
 @endsection
 
 @section('content')
-    <p>Users</p>
+    <p>New Permission</p>
 @endsection
 
 
