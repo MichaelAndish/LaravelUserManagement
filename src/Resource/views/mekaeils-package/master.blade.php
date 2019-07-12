@@ -13,8 +13,9 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-            @yield('content')
+            @yield('breadcrumb')
 
+            @yield('content')
         </div>
         <!-- partial:partials/_footer.html -->
         <footer class="footer" >

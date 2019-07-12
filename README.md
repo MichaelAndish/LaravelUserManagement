@@ -41,6 +41,7 @@ public function run()
     */
         $this->call(RoleTableSeeder::class);
         $this->call(PermissionTableSeeder::class);
+        $this->call(DepartmentTableSeeder::class);
 }
 ```
 5. After all of the steps run these commands ordinary.

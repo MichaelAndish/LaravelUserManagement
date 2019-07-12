@@ -5,8 +5,81 @@
 
 @endsection
 
+@section('breadcrumb')
+    @include('mekaeils-package.layouts.breadcrumb',[
+        'pageTitle' => 'Roles',
+        'lists' => [
+            [
+                'link'  => '#',
+                'name'  => 'User Management',
+            ],
+            [
+                'link'  => '#',
+                'name'  => 'Roles',
+            ]
+        ]
+    ])
+@endsection
+
 @section('content')
-    <p>Roles</p>
+
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{ route('admin.user_management.role.create') }}" class="btn btn-outline-primary btn-icon-text float-right btn-newInList">
+                        <i class="mdi mdi-library-plus btn-icon-prepend"></i>
+                        new role   
+                    </a>
+                    <h4 class="card-title">List of roles</h4>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Role Name
+                                </th>
+                                <th>
+                                    Title
+                                </th>
+                                <th>
+                                    guard name
+                                </th>
+                                <th>
+                                    description
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($roles as $item)
+                                <tr>
+                                    <td>
+                                        {{ $item->id }}
+                                    </td>
+                                    <td>
+                                        {{ $item->name }}
+                                    </td>
+                                    <td>
+                                        {{ $item->title }}
+                                    </td>
+                                    <td>
+                                        {{ $item->guard_name }}
+                                    </td>
+                                    <td>
+                                        {{ $item->description }}
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 
