@@ -17,24 +17,24 @@ class RolesController extends RoleUserManager
     |   to know the repositories in below are available for work with it. 
     */
 
-    public function index(){
-        return view('user-management.role.index');
-    }
+    // public function index(){
+    //     return view('user-management.role.index');
+    // }
 
-    public function create(){
-        return view('user-management.role.create');
-    }
+    // public function create(){
+    //     return view('user-management.role.create');
+    // }
 
-    public function store(){
+    // public function store(){
         
-    }
+    // }
 
-    public function update(){
+    // public function update(){
         
-    }
+    // }
 
-    public function delete()
-    {
+    // public function delete()
+    // {
 
-    }
+    // }
 }

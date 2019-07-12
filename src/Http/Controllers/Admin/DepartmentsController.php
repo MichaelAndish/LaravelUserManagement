@@ -21,8 +21,11 @@ class DepartmentsController extends Controller
         $this->userRepository       = $user;
     }
 
-    public function index(){
-        return view('user-management.department.index');
+    public function index()
+    {
+        $departments = $this->departmentRepository->all();
+
+        return view('user-management.department.index', compact('departments'));
     }
 
     public function create(){

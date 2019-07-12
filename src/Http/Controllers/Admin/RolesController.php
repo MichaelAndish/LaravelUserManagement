@@ -20,8 +20,10 @@ class RolesController extends Controller
         $this->roleRepository       = $role;
     }
 
-    public function index(){
-        return view('user-management.role.index');
+    public function index()
+    {   
+        $roles = $this->roleRepository->all();
+        return view('user-management.role.index', compact('roles'));
     }
 
     public function create(){

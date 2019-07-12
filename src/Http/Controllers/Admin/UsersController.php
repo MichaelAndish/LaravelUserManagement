@@ -24,12 +24,15 @@ class UsersController extends Controller
         $this->userRepository       = $user;
     }
 
-    public function index(){
-        return view('user-management.user.index');
+    public function index()
+    {
+        $users = $this->userRepository->all();
+
+        return view('user-management.user.index', compact('users'));
     }
 
     public function create(){
-        
+        return view('user-management.user.create');
     }
 
     public function store(){

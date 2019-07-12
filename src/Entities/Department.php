@@ -15,7 +15,6 @@ class Department extends Model
 
     protected $fillable = [
         'title',
-        'slug',
         'parent_id',
     ];
 
@@ -26,7 +25,7 @@ class Department extends Model
 
     public function parent()
     {
-        return $this->hasMany(Department::class);
+        return $this->hasOne(Department::class, 'parent_id', 'id');
     }
 
     public function children()

@@ -17,26 +17,26 @@ class DepartmentsController extends DepartmentUserManager
     */
 
 
-    public function index()
-    {
+    // public function index()
+    // {
         
-        return view('user-management.department.index');
-    }
+    //     return view('user-management.department.index');
+    // }
 
-    public function create(){
-        return view('user-management.department.create');
-    }
+    // public function create(){
+    //     return view('user-management.department.create');
+    // }
 
-    public function store(){
+    // public function store(){
         
-    }
+    // }
 
-    public function update(){
+    // public function update(){
         
-    }
+    // }
 
-    public function delete()
-    {
+    // public function delete()
+    // {
 
-    }
+    // }
 }

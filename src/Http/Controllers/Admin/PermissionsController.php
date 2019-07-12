@@ -15,8 +15,12 @@ class PermissionsController extends Controller
         $this->permissionRepository = $permission;
     }
 
-    public function index(){
-        return view('user-management.permission.index');
+    public function index(Request $request)
+    {
+        // $keyword = $request->keyword ?? null;
+        $permissions = $this->permissionRepository->all();
+
+        return view('user-management.permission.index', compact('permissions'));
     }
 
     public function create(){
