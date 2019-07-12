@@ -25,34 +25,6 @@
         </ul>
       </div>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#notification" aria-expanded="false" aria-controls="ui-basic">
-        <span class="menu-title">Notifications (soon...)</span>
-        <i class="menu-arrow"></i>
-        <i class="mdi mdi-bell-ring menu-icon"></i>
-      </a>
-      <div class="collapse" id="notification">
-        <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> 
-              <a class="nav-link" href="#">notifications</a>
-            </li>
-        </ul>
-      </div>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#translation" aria-expanded="false" aria-controls="ui-basic">
-        <span class="menu-title">Translation (soon...)</span>
-        <i class="menu-arrow"></i>
-        <i class="mdi  mdi-flag menu-icon"></i>
-      </a>
-      <div class="collapse" id="translation">
-        <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> 
-              <a class="nav-link" href="#">transaltion</a>
-            </li>
-        </ul>
-      </div>
-    </li>
 
     <li class="nav-item sidebar-actions">
       <span class="nav-link">

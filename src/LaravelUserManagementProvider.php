@@ -52,6 +52,8 @@ class LaravelUserManagementProvider extends ServiceProvider
                 __DIR__ . '/Database/Migrations/'   => database_path('migrations/'),
                 // ENTITIES
                 __DIR__ . '/Entities/export/'   => app_path('Entities/'),
+                // CONTROLLERS
+                __DIR__ . '/Http/Controllers/Admin/' => app_path('Http/Controllers/UserManagement'),
                 // SEEDS
                 __DIR__ . '/Database/Seeders/Permission/PermissionTableSeeder.php'  => database_path('seeds/PermissionTableSeeder.php'),
                 __DIR__ . '/Database/Seeders/Role/RoleTableSeeder.php'  => database_path('seeds/RoleTableSeeder.php'),
