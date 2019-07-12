@@ -12,12 +12,6 @@ Manage all of the users, we use ["spatie/laravel-permission"](https://github.com
 When you installing this package the "spatie/laravel-permission" package and dependencies will be install automatically.
 In "LaravelUserManagement" package we create all of the DB Tables, Entities, Seeders, View for manage users, roles, permissions and departments.
 
-
-
-## How I can use LaravelUserManagement
-
-....
-
 # Installation
 
 1. Install the package via composer:
@@ -55,7 +49,11 @@ public function run()
     5.2     php artisan db:seed
 ```
 
-
 ## License
 
-The LaravelUserManagement is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+1. The LaravelUserManagement is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+2. Admin Template(PurpleAdmin-Free-Admin-Template) By [Bootstrap Dash](https://github.com/BootstrapDash/PurpleAdmin-Free-Admin-Template)
+
+

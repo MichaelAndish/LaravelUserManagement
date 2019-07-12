@@ -4,7 +4,7 @@ return [
 
     /*  
     |--------------------------------------------------------------------------
-    | YOUR PROJECT INFORMATION
+    | LARAVEL USER MANAGEMENT CONFIG
     |--------------------------------------------------------------------------
     |   
     |
@@ -24,6 +24,7 @@ return [
         // laravel_user_management.user_model    
         'user_model'            => App\Entities\User::class,
 
-
+        // laravel_user_management.admin_url
+        'admin_url'             => env('APP_URL').'/admin',
         
 ];
