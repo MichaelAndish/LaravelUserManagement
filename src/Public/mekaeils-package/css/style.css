@@ -20953,4 +20953,9 @@ dl li {
   color: initial;
 }
 
+.btn-newInList{
+  margin-top: -2em;
+  padding: 1em;
+}
+
 /*# sourceMappingURL=maps/style.css.map */

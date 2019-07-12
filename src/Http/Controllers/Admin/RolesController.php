@@ -1,14 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\UserManagement;
+namespace Mekaeil\LaravelUserManagement\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Mekaeil\LaravelUserManagement\Repository\Contracts\PermissionRepositoryInterface;
+use Mekaeil\LaravelUserManagement\Repository\Contracts\RoleRepositoryInterface;
 
 class RolesController extends Controller
 {
-    public function index(){
-        return view('user-management.role.index');
+    protected $permissionRepository;
+    protected $roleRepository;
+
+    public function __construct(
+        PermissionRepositoryInterface $permission,
+        RoleRepositoryInterface $role)
+    {
+        $this->permissionRepository = $permission;
+        $this->roleRepository       = $role;
+    }
+
+    public function index()
+    {   
+        $roles = $this->roleRepository->all();
+        return view('user-management.role.index', compact('roles'));
     }
 
     public function create(){

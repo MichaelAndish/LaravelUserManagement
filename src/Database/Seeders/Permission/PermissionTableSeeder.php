@@ -8,9 +8,9 @@ class PermissionTableSeeder extends MasterPermissionTableSeeder
     protected $permissions = [
         [
             'name'          => 'admin.manager',
-            'display_name'  => 'پنل مدیریت',
+            'title'         => 'Admin Panel',
             'guard_name'    => 'web',
-            'description'   => 'این مجوز برای دسترسی کاربر به ادمین می‌باشد.',
+            'description'   => 'This permission is for access to admin panel.',
             'module'        => 'User',
             'roles'         => [
                 'Admin',
