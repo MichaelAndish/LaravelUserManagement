@@ -1,4 +1,8 @@
+<p style="width: 30em;text-align:left;">
+
 ![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/logo-user-management.jpg)
+
+</p>
 
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 
