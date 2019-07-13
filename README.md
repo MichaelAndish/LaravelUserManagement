@@ -1,8 +1,6 @@
-![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/images/logo-user-management.jpg)
+![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/logo-user-management.jpg)
 
-<!-- <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a> -->
-
-# Laravel User Management => in progress ... not ready :/ 
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 
 ## About Laravel Notification
 
@@ -52,22 +50,20 @@ public function run()
 |   
 |
 */
-    // laravel_user_management.users_table
+
     'users_table'           => 'users',
-    // laravel_user_management.user_department_table
+
     'user_department_table' =>  'user_departments',
 
     /** 
-        * THIS TABLE IS NAME OF THE MANY TO MANY RELATIONAL TABLE 
-        * BETWEEN USERS TABLE & USER DEPARTMENTS TABLE
-        * **/
-    // laravel_user_management.user_department_user_table
+    * THIS TABLE IS NAME OF THE MANY TO MANY RELATIONAL TABLE 
+    * BETWEEN USERS TABLE & USER DEPARTMENTS TABLE
+    * 
+    **/
     'user_department_user_table' =>  'user_departments_users',
-    
-    // laravel_user_management.user_model    
+ 
     'user_model'            => App\Entities\User::class,
 
-    // laravel_user_management.admin_url
     'admin_url'             => env('APP_URL').'/admin',
 ```
 6. And if set permissions table if you want to customize it: (you can skip it)
