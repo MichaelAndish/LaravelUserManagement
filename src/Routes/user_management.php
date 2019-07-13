@@ -9,9 +9,10 @@
 */
 
     Route::group([
-        'namespace' => 'App\Http\Controllers\UserManagement',
-        'prefix'    => 'admin/user-management',
-        'as'        => 'admin.user_management.'
+        'namespace'     => 'App\Http\Controllers\UserManagement',
+        'prefix'        => 'admin/user-management',
+        'as'            => 'admin.user_management.',
+        'middleware'    => ['web']
     ], 
     function () {
 
@@ -32,11 +33,14 @@
             // admin.user_management.user.create
             route::post('/store', 'UsersController@store')->name('store');
 
+            // admin.user_management.user.edit
+            route::get('/edit/{ID}', 'UsersController@edit')->name('edit');
+
             // admin.user_management.user.update
-            route::put('/update/{user}', 'UsersController@update')->name('update');
+            route::put('/update/{ID}', 'UsersController@update')->name('update');
 
             // admin.user_management.user.delete
-            route::delete('/delete/{user}', 'UsersController@delete')->name('delete');
+            route::delete('/delete/{ID}', 'UsersController@delete')->name('delete');
         });
 
         ////    ROLE ROUTES
@@ -56,11 +60,14 @@
             // admin.user_management.role.create
             route::post('/store', 'RolesController@store')->name('store');
 
+            // admin.user_management.role.edit
+            route::get('/edit/{ID}', 'RolesController@edit')->name('edit');
+
             // admin.user_management.role.update
-            route::put('/update/{role}', 'RolesController@update')->name('update');
+            route::put('/update/{ID}', 'RolesController@update')->name('update');
 
             // admin.user_management.role.delete
-            route::delete('/delete/{role}', 'RolesController@delete')->name('delete');
+            route::delete('/delete/{ID}', 'RolesController@delete')->name('delete');
         });
 
         ////    PERMISSION ROUTES
@@ -77,14 +84,17 @@
             // admin.user_management.permission.create
             route::get('/create', 'PermissionsController@create')->name('create');
 
-            // admin.user_management.permission.create
+            // admin.user_management.permission.store
             route::post('/store', 'PermissionsController@store')->name('store');
 
+            // admin.user_management.permission.edit
+            route::get('/edit/{ID}', 'PermissionsController@edit')->name('edit');
+
             // admin.user_management.permission.update
-            route::put('/update/{permission}', 'PermissionsController@update')->name('update');
+            route::put('/update/{ID}', 'PermissionsController@update')->name('update');
 
             // admin.user_management.permission.delete
-            route::delete('/delete/{permission}', 'PermissionsController@delete')->name('delete');
+            route::delete('/delete/{ID}', 'PermissionsController@delete')->name('delete');
         });
 
         ////    DEPARTMENT ROUTES
@@ -104,11 +114,14 @@
             // admin.user_management.department.create
             route::post('/store', 'DepartmentsController@store')->name('store');
 
+            // admin.user_management.department.edit
+            route::get('/edit/{ID}', 'DepartmentsController@edit')->name('edit');
+
             // admin.user_management.department.update
-            route::put('/update/{department}', 'DepartmentsController@update')->name('update');
+            route::put('/update/{ID}', 'DepartmentsController@update')->name('update');
 
             // admin.user_management.department.delete
-            route::delete('/delete/{department}', 'DepartmentsController@delete')->name('delete');
+            route::delete('/delete/{ID}', 'DepartmentsController@delete')->name('delete');
         });
 
 
