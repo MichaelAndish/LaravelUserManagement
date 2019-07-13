@@ -24,7 +24,11 @@ return [
         // laravel_user_management.user_model    
         'user_model'            => App\Entities\User::class,
 
+        // laravel_user_management.row_list_per_page
+        'row_list_per_page'     => 15,
+
         // laravel_user_management.admin_url
         'admin_url'             => env('APP_URL').'/admin',
+
         
 ];

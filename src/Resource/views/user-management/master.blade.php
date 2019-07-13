@@ -15,6 +15,8 @@
         <div class="content-wrapper">
             @yield('breadcrumb')
 
+            @include('mekaeils-package.layouts.alert')
+            
             @yield('content')
         </div>
         <!-- partial:partials/_footer.html -->

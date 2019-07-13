@@ -83,5 +83,10 @@ class BaseEloquentRepository implements BaseRepositoryInterface
         return $query->update($data);
     }
 
+    public function paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null)
+    {
+        $query = $this->model::query();
+        return $query->paginate($perPage, $columns, $pageName, $page);
+    }
 
 }

@@ -49,6 +49,9 @@
                                 <th>
                                     description
                                 </th>
+                                <th>
+                                    Action
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,11 +72,24 @@
                                     <td>
                                         {{ $item->description }}
                                     </td>
+                                    <td>
+                                        <a href="{{ route('admin.user_management.permission.edit', $item->id) }}" class="btn btn-outline-dark btn-sm">Edit</a>
+
+                                        <form action="{{ route('admin.user_management.permission.delete', $item->id) }}" method="post" class="inline-block">
+                                            @method('DELETE')
+                                            {{ csrf_field() }}
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
 
                         </tbody>
                     </table>
+
+                    <div class="pagination">
+                        {{ $permissions->links() }}
+                    </div>
                 </div>
             </div>
         </div>
