@@ -7,7 +7,7 @@
 
 @section('breadcrumb')
     @include('mekaeils-package.layouts.breadcrumb',[
-        'pageTitle' => 'Create Department',
+        'pageTitle' => 'Edit Department: '. $department->title,
         'lists' => [
             [
                 'link'  => '#',
@@ -19,7 +19,7 @@
             ],
             [
                 'link'  => '#',
-                'name'  => 'New Department', 
+                'name'  => 'Edit Department', 
             ]
         ]
     ])
@@ -30,14 +30,15 @@
     <div class="card">
         <div class="card-body">
             {{-- <h4 class="card-title">Create new permission</h4> --}}
-            <form class="forms-sample" method="POST" action="{{ route('admin.user_management.department.store') }}">
+            <form class="forms-sample" method="POST" action="{{ route('admin.user_management.department.update', $department->id) }}">
+                @method('PUT')
                 {!! csrf_field() !!}
 
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" name="title" class="form-control" id="title" placeholder="Title like: Client">
+                            <input type="text" name="title" class="form-control" id="title" value="{{ $department->title }}">
                         </div>
                     </div>
                     <div class="col-6">
@@ -46,7 +47,7 @@
                             <select class="form-control" name="parent_id" id="parent" placeholder="Select department">
                                 <option></option>
                                 @foreach ($departments as $item)
-                                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                    <option value="{{ $item->id }}" {{ ($item->id == $department->id) ? 'selected' : '' }}>{{ $item->title }}</option>
                                 @endforeach                                
                             </select>
                         </div>
