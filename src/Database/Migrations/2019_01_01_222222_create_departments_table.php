@@ -17,7 +17,7 @@ class CreateDepartmentsTable extends Migration
         Schema::create($table, function (Blueprint $table) 
         {
             $table->increments('id');
-            $table->string('title');
+            $table->string('title')->unique();
             $table->unsignedInteger('parent_id')->nullable();
             $table->timestamps();
 
@@ -26,6 +26,8 @@ class CreateDepartmentsTable extends Migration
                 ->on($table)
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
+
+            
         });
     }
 
