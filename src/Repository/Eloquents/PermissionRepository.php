@@ -8,10 +8,14 @@ use Mekaeil\LaravelUserManagement\Repository\Eloquents\BaseEloquentRepository;
 use Mekaeil\LaravelUserManagement\Repository\Contracts\PermissionRepositoryInterface;
 class PermissionRepository extends BaseEloquentRepository implements PermissionRepositoryInterface
 {
-    protected $model = Permission::class;
+    protected $model        = Permission::class;
+    protected $roleModel    = Role::class; 
 
-    public function setPermissionToRole(Role $role, $permission, $give = true)
+    public function setPermissionToRole(int $roleID, $permission, $give = true)
     {
+        $query  = $this->roleModel::query();
+        $role   = $query->find($roleID);
+
         if ($give)
         {
             return $role->givePermissionTo($permission);
@@ -20,11 +24,19 @@ class PermissionRepository extends BaseEloquentRepository implements PermissionR
         return $role->revokePermissionTo($permission);
     }
 
-    public function SyncPermToRole(Role $role, array $permissions)
+    public function SyncPermToRole(int $roleID, array $permissions)
     {
+        $query  = $this->roleModel::query();
+        $role   = $query->find($roleID);
+        
         return $role->syncPermissions($permissions);
     }
 
+    public function getPermissionsModule()
+    {
+        $query = $this->model::query();
+        return array_keys(collect($query->get())->keyBy('module')->toArray());
+    }
 
 
 }

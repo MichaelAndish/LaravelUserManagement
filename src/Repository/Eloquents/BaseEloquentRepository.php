@@ -8,7 +8,7 @@ class BaseEloquentRepository implements BaseRepositoryInterface
 {
     protected $model;
 
-    public function all(array $columns = null, array $relations = [])
+    public function all(array $columns = [], array $relations = [], array $pluck = [])
     {
         $query = $this->model::query();
 
@@ -17,9 +17,14 @@ class BaseEloquentRepository implements BaseRepositoryInterface
             $query->with($relations);
         }
 
-        if (!is_null($columns)) 
+        if (!empty($columns)) 
         {
             return $query->get($columns);
+        }
+
+        if(! empty($pluck))
+        {
+            return $query->get()->{$pluck['method']}($pluck['first'],$pluck['second'])->toArray();
         }
 
         return $query->get();
