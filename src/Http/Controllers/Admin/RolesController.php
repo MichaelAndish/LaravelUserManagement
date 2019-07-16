@@ -30,7 +30,9 @@ class RolesController extends Controller
 
     public function create()
     {
+        // $modules = $this->permissionRepository->getPermissionsModule();
         $permissions = $this->permissionRepository->all();
+
         return view('user-management.role.create', compact('permissions'));    
     }
 
@@ -39,7 +41,11 @@ class RolesController extends Controller
         if($role = $this->roleRepository->find($ID))
         {
             $permissions        = $this->permissionRepository->all();
-            $roleHasPermissions = [];
+            $roleHasPermissions = $this->roleRepository->all([], [], [
+               'method' => 'pluck',
+               'first'  => 'id',
+               'second' => 'id',
+            ]);
 
             return view('user-management.role.edit', compact('role', 'permissions', 'roleHasPermissions'));    
         }
@@ -62,7 +68,7 @@ class RolesController extends Controller
         
         if(! empty($request->permissions))
         {
-            // attach permission to role
+            $this->permissionRepository->setPermissionToRole($role->id, $request->permissions);
         }
 
         return redirect()->route('admin.user_management.role.index')->with('message',[
@@ -74,7 +80,7 @@ class RolesController extends Controller
 
     public function update(int $ID, UpdateRole $request)
     {
-        if($this->roleRepository->find($ID))
+        if($role = $this->roleRepository->find($ID))
         {
            $this->roleRepository->update($ID,[
                 'name'          => $request->name,
@@ -85,12 +91,12 @@ class RolesController extends Controller
 
            if(! empty($request->permissions))
            {
-               // sync permission to role
+                $this->permissionRepository->SyncPermToRole($role->id, $request->permissions);
            }
    
            return redirect()->route('admin.user_management.role.index')->with('message',[
                'type'  => 'success',
-               'text'  => "his role << $request->name >> updated successfully.",
+               'text'  => "This role << $request->name >> updated successfully.",
            ]);
 
         }

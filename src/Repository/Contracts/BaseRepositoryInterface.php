@@ -4,7 +4,7 @@ namespace Mekaeil\LaravelUserManagement\Repository\Contracts;
 
 interface BaseRepositoryInterface 
 {
-    public function all(array $columns = [],array $relations = []);
+    public function all(array $columns = [], array $relations = [], array $pluck = []);
 
     public function find(int $ID, array $columns = null);
 
