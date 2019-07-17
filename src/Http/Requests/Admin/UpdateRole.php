@@ -30,6 +30,8 @@ class UpdateRole extends FormRequest
             'title'         => 'required|string',
             'guard_name'    => 'nullable',
             'description'   => 'nullable',
+            'permissions'   => 'nullable|array',
+            'permissions.*' => 'nullable|exists:'. $tableNames['permissions']. ',name',
         ];
     }
 }
