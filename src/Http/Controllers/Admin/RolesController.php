@@ -30,7 +30,6 @@ class RolesController extends Controller
 
     public function create()
     {
-        // $modules = $this->permissionRepository->getPermissionsModule();
         $permissions = $this->permissionRepository->all();
 
         return view('user-management.role.create', compact('permissions'));    
@@ -41,12 +40,8 @@ class RolesController extends Controller
         if($role = $this->roleRepository->find($ID))
         {
             $permissions        = $this->permissionRepository->all();
-            $roleHasPermissions = $this->roleRepository->all([], [], [
-               'method' => 'pluck',
-               'first'  => 'id',
-               'second' => 'id',
-            ]);
-
+            $roleHasPermissions = array_column(json_decode($role->permissions, true), 'id');
+            
             return view('user-management.role.edit', compact('role', 'permissions', 'roleHasPermissions'));    
         }
 
@@ -82,22 +77,20 @@ class RolesController extends Controller
     {
         if($role = $this->roleRepository->find($ID))
         {
-           $this->roleRepository->update($ID,[
+            $this->roleRepository->update($ID,[
                 'name'          => $request->name,
                 'title'         => $request->title,
                 'guard_name'    => $request->guard_name,
                 'description'   => $request->description,
-           ]);
+            ]);
 
-           if(! empty($request->permissions))
-           {
-                $this->permissionRepository->SyncPermToRole($role->id, $request->permissions);
-           }
+            $permissions = $request->permissions ?? [];
+            $this->permissionRepository->SyncPermToRole($role->id, $permissions);
    
-           return redirect()->route('admin.user_management.role.index')->with('message',[
+            return redirect()->route('admin.user_management.role.index')->with('message',[
                'type'  => 'success',
                'text'  => "This role << $request->name >> updated successfully.",
-           ]);
+            ]);
 
         }
 
@@ -124,4 +117,5 @@ class RolesController extends Controller
             'text'  => 'This role does not exist!'
         ]);
     }
+    
 }

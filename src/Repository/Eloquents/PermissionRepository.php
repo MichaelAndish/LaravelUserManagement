@@ -28,7 +28,7 @@ class PermissionRepository extends BaseEloquentRepository implements PermissionR
     {
         $query  = $this->roleModel::query();
         $role   = $query->find($roleID);
-        
+
         return $role->syncPermissions($permissions);
     }
 
