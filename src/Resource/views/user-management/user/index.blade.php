@@ -52,6 +52,9 @@
                                 <th>
                                     Register Date
                                 </th>
+                                <th>
+                                    Actions
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,6 +77,15 @@
                                     </td>
                                     <td>
                                         {{ $item->created_at }}
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.user_management.user.edit', $item->id) }}" class="btn btn-outline-dark btn-sm">Edit</a>
+
+                                        <form action="{{ route('admin.user_management.user.delete', $item->id) }}" method="post" class="inline-block">
+                                            @method('DELETE')
+                                            {{ csrf_field() }}
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

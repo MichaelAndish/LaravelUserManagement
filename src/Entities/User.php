@@ -10,6 +10,18 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use Notifiable,HasRoles;
+
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'mobile',
+        'password',
+        'status',
+        'email_verified',
+        'mobile_verified',        
+    ];
+
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
