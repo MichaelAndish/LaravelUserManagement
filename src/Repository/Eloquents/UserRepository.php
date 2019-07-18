@@ -26,4 +26,5 @@ class UserRepository extends BaseEloquentRepository implements UserRepositoryInt
 
     }
 
+
 }

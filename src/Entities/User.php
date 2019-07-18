@@ -29,4 +29,16 @@ class User extends Authenticatable
         $this->setTable(config("laravel_user_management.users_table"));
     }
 
+    public function departments()
+    {
+        $table  = config("laravel_user_management.user_department_user_table");
+
+        return $this->belongsToMany(
+            Department::class,
+            $table,
+            'user_id',
+            'department_id'
+        );
+    }
+
 }
