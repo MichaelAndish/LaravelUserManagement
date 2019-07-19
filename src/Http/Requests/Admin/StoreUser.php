@@ -32,6 +32,7 @@ class StoreUser extends FormRequest
             'last_name'     => 'required|string',
             'email'         => "nullable|email|unique:$userTable,email",
             'mobile'        => "required|unique:$userTable,mobile",
+            'password'      => 'required|min:6',
             'roles'         => 'nullable|array',
             'roles.*'       => 'nullable|exists:'. $tableNames['roles']. ',name',
             'departments'   => 'nullable|array',

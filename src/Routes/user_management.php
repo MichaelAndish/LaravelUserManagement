@@ -41,6 +41,9 @@
 
             // admin.user_management.user.delete
             route::delete('/delete/{ID}', 'UsersController@delete')->name('delete');
+
+            // admin.user_management.user.restore
+            route::put('/restore/{ID}', 'UsersController@restoreBackUser')->name('restore');
         });
 
         ////    ROLE ROUTES

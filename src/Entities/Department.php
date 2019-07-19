@@ -35,9 +35,11 @@ class Department extends Model
 
     public function users()
     {
+        $table  = config("laravel_user_management.user_department_user_table");
+
         return $this->belongsToMany(
-            Department::class,
-            'user_department_users',
+            User::class,
+            $table,
             'department_id',
             'user_id'
         );
