@@ -10,28 +10,12 @@ class RoleRepository extends BaseEloquentRepository implements RoleRepositoryInt
 {
     protected $model = Role::class;
 
-    public function syncRole($owner, $method = 'syncRoles', $roles = null)
+    public function syncRoleToUser($owner, array $roles = [])
     {
-
-        if ($method == 'syncRoles' && $roles)
-        {
-            return $owner->{$method}($roles);
-        }
-
-        if ($roles)
-        {
-            return $owner->roles()->{$method}($roles);
-        }
-
-        if (!$roles && $method == 'detach')
-        {
-            return $owner->roles()->detach();
-        }
-
-        return null;
+        return $owner->syncRoles($roles);
     }
 
-    public function setRoleToMember($owner, $role , $assign = true)
+    public function setRoleToMember($owner, $role, $assign = true)
     {
         if ($assign)
         {

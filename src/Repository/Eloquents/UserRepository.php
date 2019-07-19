@@ -26,4 +26,21 @@ class UserRepository extends BaseEloquentRepository implements UserRepositoryInt
 
     }
 
+    public function allWithTrashed()
+    {
+        $query = $this->model::query();
+
+        return $query->withTrashed()
+            ->orderBy('created_at','DESC')
+            ->paginate();
+    }
+
+    public function restoreUser(int $ID)
+    {
+        $query = $this->model::query();
+        
+        return $query->withTrashed()->where('id', $ID)->restore();
+    }
+
+
 }
