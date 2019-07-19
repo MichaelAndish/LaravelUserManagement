@@ -10,7 +10,7 @@ class DepartmentRepository extends BaseEloquentRepository implements DepartmentR
 {
     protected $model = Department::class;
 
-    public function syncDepartment($owner, array $departments=[])
+    public function syncDepartments($owner, array $departments=[])
     {
         return $owner->departments()->sync($departments, false);
     }

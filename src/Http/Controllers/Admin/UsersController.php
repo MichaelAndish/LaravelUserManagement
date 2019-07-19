@@ -10,6 +10,7 @@ use Mekaeil\LaravelUserManagement\Repository\Contracts\UserRepositoryInterface;
 use Mekaeil\LaravelUserManagement\Repository\Eloquents\DepartmentRepository;
 use Mekaeil\LaravelUserManagement\Http\Requests\Admin\StoreUser;
 use Mekaeil\LaravelUserManagement\Http\Requests\Admin\UpdateUser;
+use App\Entities\User;
 
 class UsersController extends Controller
 {
@@ -32,7 +33,8 @@ class UsersController extends Controller
 
     public function index()
     {
-        $users          = $this->userRepository->all();
+        // $users          = $this->userRepository->all();
+        $users          = $this->userRepository->allWithTrashed();
 
         return view('user-management.user.index', compact('users'));
     }
@@ -138,10 +140,35 @@ class UsersController extends Controller
         if($user = $this->userRepository->find($ID))
         {
             //// soft delete
+            $this->userRepository->update($ID, [
+                'status'    => 'deleted'
+            ]);
+            $user->delete();
 
             return redirect()->route('admin.user_management.user.index')->with('message',[
                 'type'   => 'warning',
-                'text'   => 'َUser Deleted successfully!' 
+                'text'   => 'User Deleted successfully!' 
+            ]);
+        }
+
+        return redirect()->back()->with('message',[
+            'type'  => 'danger',
+            'text'  => 'This user does not exist!',
+        ]);
+    }
+
+    public function restoreBackUser(int $ID)
+    {
+        
+        if($this->userRepository->restoreUser($ID))
+        {
+            $user = $this->userRepository->update($ID, [
+                'status'    => 'accepted',
+            ]);
+
+            return redirect()->route('admin.user_management.user.index')->with('message',[
+                'type'   => 'success',
+                'text'   => 'User restored successfully!' 
             ]);
         }
 
