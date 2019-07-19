@@ -74,7 +74,8 @@
                                 @forelse ($permissions as $item)                                
                                     <div class="form-check">
                                         <label class="form-check-label">
-                                            <input type="checkbox" name="permissions[]" value="{{ $item->name }}" {{ in_array($item->id,$roleHasPermissions) ? 'checked' : '' }} class="form-check-input">{{ $item->title }}
+                                            <input type="checkbox" name="permissions[]" value="{{ $item->name }}" {{ in_array($item->id,$roleHasPermissions) ? 'checked' : '' }} class="form-check-input">
+                                            {{ $item->title . ($item->description ? "  [ " . $item->description . " ]" : "")}}
                                             <i class="input-helper"></i>
                                         </label>
                                     </div>

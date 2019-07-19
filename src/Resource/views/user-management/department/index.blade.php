@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="card-body">
                     <a href="{{ route('admin.user_management.department.create') }}" class="btn btn-outline-primary btn-icon-text float-right btn-newInList">
-                        <i class="mdi mdi-library-plus btn-icon-prepend"></i>
+                        <i class="mdi mdi-shape-rectangle-plus btn-icon-prepend"></i>
                         new department   
                     </a>
                     <h4 class="card-title">List of the departments</h4>

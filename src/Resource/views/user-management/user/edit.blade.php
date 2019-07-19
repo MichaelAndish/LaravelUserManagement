@@ -7,7 +7,7 @@
 
 @section('breadcrumb')
     @include('mekaeils-package.layouts.breadcrumb',[
-        'pageTitle' => 'Edit User' . $user->first_name . " " . $user->last_name,
+        'pageTitle' => 'Edit User ' . $user->first_name . " " . $user->last_name,
         'lists' => [
             [
                 'link'  => '#',
@@ -54,7 +54,7 @@
                             <select multiple class="form-control" name="departments[]" id="guard_name">
                                 <option></option>
                                 @forelse ($departments as $item)
-                                    <option value="{{ $item->id }}" {{ in_array($item->id, $userHasDepartments) }}>{{ $item->title }}</option>
+                                    <option value="{{ $item->id }}" {{ in_array($item->id, $userHasDepartments) ? 'selected' : '' }}>{{ $item->title }}</option>
                                 @empty
                                     
                                 @endforelse
@@ -100,7 +100,7 @@
                             @forelse ($roles as $item)                                
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input type="checkbox" name="roles[]" value="{{ $item->name }}" class="form-check-input">
+                                        <input type="checkbox" {{ in_array($item->id, $userHasRoles) ? 'checked' : ''  }} name="roles[]" value="{{ $item->name }}" class="form-check-input">
                                         {{ $item->title . ($item->description ? "  [ " . $item->description . " ]" : "")}}
                                         <i class="input-helper"></i>
                                     </label>
@@ -117,7 +117,7 @@
 
     <div class="col-12 grid-margin stretch-card">
         <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-        <a href="{{ route('admin.user_management.role.index') }}" class="btn btn-light">Cancel</a>
+        <a href="{{ route('admin.user_management.user.index') }}" class="btn btn-light">Cancel</a>
     </div>
 </form>
 

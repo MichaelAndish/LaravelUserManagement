@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="card-body">
                     <a href="{{ route('admin.user_management.permission.create') }}" class="btn btn-outline-primary btn-icon-text float-right btn-newInList">
-                        <i class="mdi mdi-library-plus btn-icon-prepend"></i>
+                        <i class="mdi mdi-settings btn-icon-prepend"></i>
                         new permission   
                     </a>            
                     <h4 class="card-title">List of the permissions</h4>

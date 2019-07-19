@@ -61,6 +61,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-4">
                         <div class="form-group">
@@ -82,6 +83,15 @@
                                 <option value="accepted">accepted</option>
                                 <option value="blocked">blocked</option>
                             </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" name="password" class="form-control" id="password" placeholder="Min character is 6">
                         </div>
                     </div>
                 </div>
@@ -116,7 +126,7 @@
 
     <div class="col-12 grid-margin stretch-card">
         <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-        <a href="{{ route('admin.user_management.role.index') }}" class="btn btn-light">Cancel</a>
+        <a href="{{ route('admin.user_management.user.index') }}" class="btn btn-light">Cancel</a>
     </div>
 </form>
 
