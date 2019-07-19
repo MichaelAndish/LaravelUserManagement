@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="card-body">
                     <a href="{{ route('admin.user_management.user.create') }}" class="btn btn-outline-primary btn-icon-text float-right btn-newInList">
-                        <i class="mdi mdi-library-plus btn-icon-prepend"></i>
+                        <i class="mdi mdi-account-plus btn-icon-prepend"></i>
                         new user   
                     </a>
                     <h4 class="card-title">List of users</h4>
@@ -53,13 +53,19 @@
                                     Register Date
                                 </th>
                                 <th>
+                                    Roles
+                                </th>
+                                <th>
+                                    Departments
+                                </th>
+                                <th>
                                     Actions
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($users as $item)
-                                <tr>
+                                <tr class="{{$item->status == 'blocked' ? ' bg-warning ' : '' }} {{$item->status == 'deleted' ? ' bg-danger ' : '' }}">
                                     <td>
                                         {{ $item->id }}
                                     </td>
@@ -79,13 +85,35 @@
                                         {{ $item->created_at }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.user_management.user.edit', $item->id) }}" class="btn btn-outline-dark btn-sm">Edit</a>
+                                        @forelse ($item->roles as $value)
+                                            {{ $value->name }}, 
+                                        @empty
+                                            ----
+                                        @endforelse
+                                    </td>
+                                    <td>
+                                        @forelse ($item->departments as $value)
+                                            {{ $value->title }}, 
+                                        @empty
+                                            ----
+                                        @endforelse
+                                    </td>
+                                    <td>
+                                        @if ($item->status == 'deleted')
+                                            <form action="{{ route('admin.user_management.user.restore', $item->id) }}" method="post" class="inline-block">
+                                                @method('PUT')
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-outline-danger btn-sm">Restore</button>
+                                            </form>
+                                        @else
+                                            <a href="{{ route('admin.user_management.user.edit', $item->id) }}" class="btn btn-outline-dark btn-sm">Edit</a>
 
-                                        <form action="{{ route('admin.user_management.user.delete', $item->id) }}" method="post" class="inline-block">
-                                            @method('DELETE')
-                                            {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
-                                        </form>
+                                            <form action="{{ route('admin.user_management.user.delete', $item->id) }}" method="post" class="inline-block">
+                                                @method('DELETE')
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                            </form>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

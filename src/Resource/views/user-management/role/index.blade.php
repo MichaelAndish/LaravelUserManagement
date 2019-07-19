@@ -28,7 +28,7 @@
             <div class="card">
                 <div class="card-body">
                     <a href="{{ route('admin.user_management.role.create') }}" class="btn btn-outline-primary btn-icon-text float-right btn-newInList">
-                        <i class="mdi mdi-library-plus btn-icon-prepend"></i>
+                        <i class="mdi mdi-settings btn-icon-prepend"></i>
                         new role   
                     </a>
                     <h4 class="card-title">List of roles</h4>
