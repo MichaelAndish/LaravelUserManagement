@@ -27,14 +27,17 @@ class LaravelUserManagementProvider extends ServiceProvider
      */
     public function boot()
     {
-        ////    CHECK IF ROUTE EXISTS IN BASE PROJECT USE IT 
-        $this->loadRoutesFrom(__DIR__ . '/routes/user_management.php');
+        ///   CHECK IF ROUTE EXISTS IN BASE PROJECT USE IT 
+        if(file_exists(base_path('routes/user_management.php')))
+        {
+            $this->loadRoutesFrom(base_path('routes/user_management.php'));
+        }
 
-        ////    SET VIEW'S ROUTE
-        $this->loadViewsFrom(__DIR__ . '/views', 'LaravelUserManagement');
+        ///    SET VIEW'S ROUTE
+        $this->loadViewsFrom(base_path('views'), 'LaravelUserManagement');
 
-        ////    SET MIGRATION'S ROUTE
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        ///   SET MIGRATION'S ROUTE
+        $this->loadMigrationsFrom(base_path('database/migrations'));
 
         
         
@@ -72,12 +75,12 @@ class LaravelUserManagementProvider extends ServiceProvider
      */
     public function register()
     {
-        ////    BIND FOR FACADE PATTERN
+        ///    BIND FOR FACADE PATTERN
         $this->app->bind('UserManagement', function(){
             return new UserManagement();
         });
 
-        ////    BIND ABSTRACT TO CONCRETE (IOC CONTAINER WILL HANDLE IT)
+        ///    BIND ABSTRACT TO CONCRETE (IOC CONTAINER WILL HANDLE IT)
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(DepartmentRepositoryInterface::class, DepartmentRepository::class);
         $this->app->bind(PermissionRepositoryInterface::class, PermissionRepository::class);
