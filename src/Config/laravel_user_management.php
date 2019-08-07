@@ -30,5 +30,23 @@ return [
         // laravel_user_management.admin_url
         'admin_url'             => env('APP_URL').'/admin',
 
+        // laravel_user_management.logo_url
+        'logo_url'              => env('APP_URL'). "/mekaeils-package/images/logo-user-management.jpg",
         
+        'auth'  => [
+
+            // laravel_user_management.auth.enable    
+            'enable'        => true,
+
+            // laravel_user_management.auth.login_url    
+            'login_url'     => 'user/login',
+
+            // laravel_user_management.auth.register_url    
+            'register_url'  => 'user/register',
+
+            // laravel_user_management.auth.username  
+            'username'      => 'email', // email OR mobile 
+            
+        ],
+
 ];

@@ -12,7 +12,7 @@
         'namespace'     => 'App\Http\Controllers\UserManagement',
         'prefix'        => 'admin/user-management',
         'as'            => 'admin.user_management.',
-        'middleware'    => ['web']
+        'middleware'    => ['web', 'auth:web']
     ], 
     function () {
 
@@ -129,3 +129,42 @@
 
 
     });
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | IF THE CONFIG USER AUTH ENABLED THIS ROUTE WILL BE AVAILABLE
+    |--------------------------------------------------------------------------
+    |
+    |
+    */    
+    
+    if(config('laravel_user_management.auth.enable'))
+    {
+        /// USER AUTH
+        Route::group([
+            'namespace'     => 'App\Http\Controllers\UserManagement\Auth',
+            'as'            => 'auth.user.',
+            'middleware'    => ['web', 'guest']
+        ], 
+        function () {
+
+            // auth.user.login
+            Route::get(config('laravel_user_management.auth.login_url'), 'AuthController@loginForm')
+                ->name('login');
+
+            // auth.user.login
+            Route::post(config('laravel_user_management.auth.login_url'), 'AuthController@login')
+                ->name('login');
+
+            // auth.user.register
+            Route::get(config('laravel_user_management.auth.register_url'), 'AuthController@registerForm')
+                ->name('register');
+
+            // auth.user.register
+            Route::post(config('laravel_user_management.auth.register_url'), 'AuthController@register')
+                ->name('register');
+                
+        });
+    }
