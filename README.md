@@ -374,6 +374,20 @@ After install package you can set this routes on your admin panel:
     auth.user.logout
 ```
 
+## Demo
+
+1. login and registration
+
+![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/login-register.jpg)
+
+2. admin panel and create user
+
+![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/admin-panel.jpg)
+
+<br>
+
+![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/create-user.jpg)
+
 ## License
 
 
