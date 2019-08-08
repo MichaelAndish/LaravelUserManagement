@@ -30,7 +30,7 @@
             // admin.user_management.user.create
             route::get('/create', 'UsersController@create')->name('create');
 
-            // admin.user_management.user.create
+            // admin.user_management.user.store
             route::post('/store', 'UsersController@store')->name('store');
 
             // admin.user_management.user.edit
@@ -60,7 +60,7 @@
             // admin.user_management.role.create
             route::get('/create', 'RolesController@create')->name('create');
 
-            // admin.user_management.role.create
+            // admin.user_management.role.store
             route::post('/store', 'RolesController@store')->name('store');
 
             // admin.user_management.role.edit
@@ -114,7 +114,7 @@
             // admin.user_management.department.create
             route::get('/create', 'DepartmentsController@create')->name('create');
 
-            // admin.user_management.department.create
+            // admin.user_management.department.store
             route::post('/store', 'DepartmentsController@store')->name('store');
 
             // admin.user_management.department.edit

@@ -54,21 +54,66 @@ public function run()
 |   
 |
 */
-
+    // laravel_user_management.users_table
     'users_table'           => 'users',
-
+    // laravel_user_management.user_department_table
     'user_department_table' =>  'user_departments',
 
     /** 
-    * THIS TABLE IS NAME OF THE MANY TO MANY RELATIONAL TABLE 
-    * BETWEEN USERS TABLE & USER DEPARTMENTS TABLE
-    * 
-    **/
+        * THIS TABLE IS NAME OF THE MANY TO MANY RELATIONAL TABLE 
+        * BETWEEN USERS TABLE & USER DEPARTMENTS TABLE
+        * **/
+    // laravel_user_management.user_department_user_table
     'user_department_user_table' =>  'user_departments_users',
- 
+    
+    // laravel_user_management.user_model    
     'user_model'            => App\Entities\User::class,
 
+    // laravel_user_management.row_list_per_page
+    'row_list_per_page'     => 15,
+
+    // laravel_user_management.admin_url
     'admin_url'             => env('APP_URL').'/admin',
+
+    // laravel_user_management.logo_url
+    'logo_url'=> env('APP_URL'). "/mekaeils-package/images/logo-user-management.jpg",
+    
+    'auth'  => [
+
+        // laravel_user_management.auth.enable    
+        'enable'        => true,
+
+        // laravel_user_management.auth.login_url    
+        'login_url'     => 'user/login',
+
+        // laravel_user_management.auth.register_url    
+        'register_url'  => 'user/register',
+
+        // laravel_user_management.auth.logout_url    
+        'logout_url'    => 'user/logout',
+        
+        // laravel_user_management.auth.username  
+        'username'      => 'email', // email OR mobile 
+        
+        /** 
+            *  DEFAULT ROLE FOR USERS WANT TO REGISTER ON WEBSITE
+            *  YOU SHOULD DEFINE THIS ROLE IN SEEDER OR CREATE IT IN ADMIN PANEL
+            * **/
+        // laravel_user_management.auth.user_default_role  
+        'user_default_role' => 'User',
+
+        /** 
+            *  DEFAULT STATUS FOR USERS WANT TO REGISTER ON WEBSITE
+            *  IF IT'S SET ON 'PENDING' USER CAN NOT LOGIN IN WEBSITE 
+            *  AND NEED TO ACCEPT BY ADMINISTRATOR
+            * **/
+        //  laravel_user_management.auth.default_user_status
+        'default_user_status'   =>'accepted', /// 'pending','accepted','blocked' 
+        
+        // laravel_user_management.auth.dashboard_route_name_user_redirection
+        'dashboard_route_name_user_redirection'  => 'home'      /// ** ROUTE NAME **       
+    ],
+
 ```
 6. And if set permissions table if you want to customize it: (you can skip it)
 ```
@@ -214,6 +259,120 @@ public function run()
         $table->string('email')->nullable()->unique();
         $table->string('mobile')->nullable()->unique();
     ```
+
+## Routes
+After install package you can set this routes on your admin panel:
+
+1. Users Management:
+```
+    [method type: GET, url: domain.com/admin/user-management/user ]
+    admin.user_management.user.index
+
+    [method type: GET, url: domain.com/admin/user-management/user/create ]
+    admin.user_management.user.create
+
+    [method type: POST, url: domain.com/admin/user-management/user/store ]
+    admin.user_management.user.store
+
+    [method type: GET, url: domain.com/admin/user-management/user/edit/{ID} ]
+    admin.user_management.user.edit
+
+    [method type: PUT, url: domain.com/admin/user-management/user/update/{ID} ]
+    admin.user_management.user.update
+
+    [method type: DELETE, url: domain.com/admin/user-management/user/delete/{ID} ]
+    admin.user_management.user.delete
+
+    [method type: PUT, url: domain.com/admin/user-management/user/restore/{ID} ]
+    admin.user_management.user.restore
+
+```
+2. Roles Management:
+```
+    [method type: GET, url: domain.com/admin/user-management/role ]
+    admin.user_management.role.index
+
+    [method type: GET, url: domain.com/admin/user-management/role/create ]
+    admin.user_management.role.create
+
+    [method type: POST, url: domain.com/admin/user-management/role/store ]
+    admin.user_management.role.store
+
+    [method type: GET, url: domain.com/admin/user-management/role/edit/{ID} ]
+    admin.user_management.role.edit
+
+    [method type: PUT, url: domain.com/admin/user-management/role/update/{ID} ]
+    admin.user_management.role.update
+
+    [method type: DELETE, url: domain.com/admin/user-management/role/delete/{ID} ]
+    admin.user_management.role.delete
+    
+```
+3. Permissions Management:
+```
+    [method type: GET, url: domain.com/admin/user-management/permission ]
+    admin.user_management.permission.index
+
+    [method type: GET, url: domain.com/admin/user-management/permission/create ]
+    admin.user_management.permission.create
+
+    [method type: POST, url: domain.com/admin/user-management/permission/store ]
+    admin.user_management.permission.store
+
+    [method type: GET, url: domain.com/admin/user-management/permission/edit/{ID} ]
+    admin.user_management.permission.edit
+
+    [method type: PUT, url: domain.com/admin/user-management/permission/update/{ID} ]
+    admin.user_management.permission.update
+
+    [method type:DELETE, url:domain.com/admin/user-management/permission/delete/{ID} ]
+    admin.user_management.permission.delete
+
+```
+4. Departments Management:
+```
+
+    [method type: GET, url: domain.com/admin/user-management/department ]
+    admin.user_management.department.index
+
+    [method type: GET, url: domain.com/admin/user-management/department/create ]
+    admin.user_management.department.create
+
+    [method type: POST, url: domain.com/admin/user-management/department/store ]
+    admin.user_management.department.store
+
+    [method type: GET, url: domain.com/admin/user-management/department/edit/{ID} ]
+    admin.user_management.department.edit
+
+    [method type: PUT, url: domain.com/admin/user-management/department/update/{ID} ]
+    admin.user_management.department.update
+
+    [method type:DELETE, url:domain.com/admin/user-management/department/delete/{ID} ]
+    admin.user_management.department.delete
+
+```
+5. Authentication
+```
+    ****
+    * IMPORTANT: THESE URL CAN BE CHANGE IN CONFIG FILE. 
+    * THESE URLS ARE DEFAULT.
+    ****
+
+    [method type: GET, url: domain.com/user/login ]
+    auth.user.login
+
+    [method type: POST, url: domain.com/user/login ]
+    auth.user.login
+
+    [method type: GET, url: domain.com/user/register ]
+    auth.user.register
+
+    [method type: POST, url: domain.com/user/register ]
+    auth.user.register
+    
+    [method type: GET, url: domain.com/user/logout ]
+    auth.user.logout
+```
 
 ## License
 
