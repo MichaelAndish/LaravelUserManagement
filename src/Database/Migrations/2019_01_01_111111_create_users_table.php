@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->nullable()->unique();
-            $table->string('mobile')->unique();
+            $table->string('mobile')->nullable()->unique();
             $table->string('password');
             $table->enum('status',['pending','accepted','blocked'])->default('pending');
             $table->boolean('email_verified')->default(false);
