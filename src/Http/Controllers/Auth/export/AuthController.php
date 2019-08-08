@@ -36,6 +36,9 @@ class AuthController extends AuthUserManager
             /// WRITE YOUR CODE ....
     // }
 
-
+   //  public function logout()
+   //  {
+        /// WRITE YOUR CODE ....
+   //  }
 
 }

@@ -15,6 +15,12 @@ return [
     'have_account'          => 'Already have an account?',
     'sign_up'               => 'SIGN UP',
 
+    'your_account_does_not_activated'   => 'Your account does not activated!',
+    'username_or_password_wrong'        => 'Your username or password is wrong!',
+    'something_is_wrong'                => 'Something is wrong!',
+    'default_role_does_not_exist'       => 'Ooops! Default role does not exist!',
+    'account_created_successfully'      => 'Your account created successfully!',
+
     /// FORM PLACEHOLDERS TEXT
     'placeholders'          => [
 

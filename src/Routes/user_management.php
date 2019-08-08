@@ -167,4 +167,20 @@
                 ->name('register');
                 
         });
+        
+
+        ///////////////////
+        Route::group([
+            'namespace'     => 'App\Http\Controllers\UserManagement\Auth',
+            'as'            => 'auth.user.',
+            'middleware'    => ['web', 'auth']
+        ],
+        function(){
+
+            // auth.user.logout
+            Route::get(config('laravel_user_management.auth.logout_url'), 'AuthController@logout')
+                ->name('logout');
+
+        });
+            
     }
