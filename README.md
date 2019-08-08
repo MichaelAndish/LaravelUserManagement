@@ -6,7 +6,7 @@
 
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 
-## About Laravel Notification
+## About Laravel User Management
 
 Manage all of the users, we use ["spatie/laravel-permission"](https://github.com/spatie/laravel-permission) package for manage all of the users. 
 When you installing this package the "spatie/laravel-permission" package and dependencies will be install automatically.
