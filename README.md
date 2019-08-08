@@ -205,6 +205,16 @@ public function run()
     5.2     php artisan db:seed
 ```
 
+## Important
+
+    After vendor:publish files you should change user migration file, because we set
+    mobile and email to nullable, one of them you want to set to username should not nullable in Database.
+    
+    ```
+        $table->string('email')->nullable()->unique();
+        $table->string('mobile')->nullable()->unique();
+    ```
+
 ## License
 
 

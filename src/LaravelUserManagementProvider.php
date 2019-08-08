@@ -57,6 +57,7 @@ class LaravelUserManagementProvider extends ServiceProvider
                 __DIR__ . '/Entities/export/'   => app_path('Entities/'),
                 // CONTROLLERS
                 __DIR__ . '/Http/Controllers/Admin/export/' => app_path('Http/Controllers/UserManagement'),
+                __DIR__ . '/Http/Controllers/Auth/export/' => app_path('Http/Controllers/UserManagement/Auth'),
                 // SEEDS
                 __DIR__ . '/Database/Seeders/Permission/PermissionTableSeeder.php'  => database_path('seeds/PermissionTableSeeder.php'),
                 __DIR__ . '/Database/Seeders/Role/RoleTableSeeder.php'              => database_path('seeds/RoleTableSeeder.php'),
@@ -64,6 +65,9 @@ class LaravelUserManagementProvider extends ServiceProvider
                 // VIEWS
                 __DIR__ . '/Resource/views/'    => resource_path('views'),
                 __DIR__ . '/Public/'            => public_path('/'),
+                // LANG
+                __DIR__ . '/Resource/lang/en/'  => resource_path('lang/en'),
+
             ]);
 
     }
