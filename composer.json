@@ -18,5 +18,12 @@
             "name": "mekaeil",
             "email": "maikel1370@gmail.com"
         }
-    ]
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mekaeil\\LaravelUserManagement\\LaravelUserManagementProvider"
+            ]
+        }
+    }
 }
