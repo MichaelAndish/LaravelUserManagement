@@ -388,6 +388,36 @@ After install package you can set this routes on your admin panel:
 
 ![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/create-user.jpg)
 
+
+# USE VUE.JS FOR YOUR PROJECT
+
+If you want to use Vue.js for your project you can use the following installation instead of the bootstrap theme.
+After installing package follow this steps:
+```
+    1. npm install vue
+    2. Add this section to your package.json file:
+
+    "dependencies": {
+        "v-tooltip": "^2.0.2",
+        "vue-carousel": "^0.18.0",
+        "vue-clickaway": "^2.2.2",
+        "vue-lazyload": "^1.3.3",
+        "vue-material": "^1.0.0-beta-11",
+        "vue-router": "^3.1.3"
+    }
+```
+
+
+
+============================================================================================
+#   UPDATES 
+============================================================================================
+0. UPDATE PACKAGE FOR NEW VERSION OF THE LARAVEL => LARAVEL 6
+
+1. ENABLE VUE.JS FOR AUTH AND OTHER PAGES
+
+
+
 ## License
 
 
@@ -395,4 +425,4 @@ After install package you can set this routes on your admin panel:
 
 2. Admin Template(PurpleAdmin-Free-Admin-Template) By [Bootstrap Dash](https://github.com/BootstrapDash/PurpleAdmin-Free-Admin-Template)
 
-
+3. Vue Material Kit By [Creative Tim](https://www.creative-tim.com/product/vue-material-kit)
