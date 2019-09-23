@@ -71,7 +71,7 @@ return [
 
         /** 
          *  IN THIS PACKAGE WE USE THE VUE.JS FOR PAGES IF YOU 
-         *  WANT TO USE IT ENABLE IT AND FOLLOW README FILE.
+         *  WANT TO USE IT, ENABLE IT AND FOLLOW INSTALLATION STEPS IN README FILE.
          * **/       
         // laravel_user_management.vue_theme 
         'vue_theme' => false,    //  true, false | default: false
