@@ -1,0 +1,45 @@
+.md-switch .md-switch-thumb .md-ripple,
+.md-switch .md-switch-thumb:before {
+  overflow: hidden;
+}
+
+.md-switch {
+  display: flex;
+  margin: 0;
+
+  .md-switch-label {
+    color: rgba(0,0,0,.26);
+    font-size: 14px;
+    line-height: 1.42857;
+    font-weight: 400;
+    margin-bottom: .5rem;
+  }
+
+  .md-switch-container{
+    background-color: rgba(80,80,80,.7) !important;
+  }
+
+  .md-switch-thumb {
+    background-color: $white-color !important;
+    border: 1px solid rgba(0,0,0,.54);
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,.4);
+
+    .md-ripple .md-ripple-wave{
+      background-color: rgba(0,0,0,.54) !important;
+    }
+  }
+
+  &.md-checked {
+    .md-switch-thumb {
+      border: 1px solid $brand-primary;
+
+      .md-ripple .md-ripple-wave{
+        background-color: rgba(156,39,176,.7) !important;
+      }
+    }
+
+    .md-switch-container {
+      background-color: rgba(156,39,176,.7) !important;
+    }
+  }
+}

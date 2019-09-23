@@ -1,0 +1,170 @@
+.index-page{
+    .section-components h6.description{
+        margin-top: 5px;
+        margin-bottom: 30px;
+    }
+
+    .page-header{
+        height: 90vh;
+        overflow: hidden;
+    }
+    .brand{
+        color: $white-color;
+        text-align: center;
+
+        h1{
+            font-size: 6rem;
+            font-weight: 600;
+            display: inline-block;
+            position: relative;
+            line-height: 1.15em;
+            text-shadow: 0px 15px 102.86px rgba(0, 0, 0, 0.7), 0px 15px 40.02px rgba(0, 0, 0, 0.21);
+        }
+        h3{
+          font-size: 2.23rem;
+          margin: 10px auto 0;
+          line-height: 0;
+          font-weight: 400;
+          text-shadow: 0px 15px 102.86px rgba(0, 0, 0, 0.9), 0px 15px 40.02px rgba(0, 0, 0, 0.51);
+        }
+    }
+
+    h4.description{
+        font-size: 1.5em;
+    }
+}
+.section{
+  padding: 70px 0;
+}
+.profile-page{
+    .page-header{
+        height: 380px;
+        background-position: center center;
+
+        &::before {
+          background: rgba(0,0,0, .2);
+        }
+    }
+    .profile{
+        text-align: center;
+
+        img{
+            max-width: 160px;
+            width: 100%;
+            margin: 0 auto;
+            @include transform-translate-y(-50%);
+        }
+        .name{
+            margin-top: -80px;
+        }
+    }
+    .follow{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .description{
+        margin: $margin-base auto 0;
+        max-width: 600px;
+    }
+    .profile-tabs{
+        margin-top: $margin-base * 4;
+    }
+    .gallery{
+        margin-top: $margin-base * 3;
+        padding-bottom: 50px;
+
+        img{
+            width: 100%;
+            margin-bottom: $margin-base * 2;
+        }
+    }
+    .follow{
+        .btn-fab{
+            margin-top: -28px;
+        }
+    }
+    .card-background{
+        .content{
+            padding: 30% 0;
+            min-width: 160px;
+        }
+    }
+    .work{
+        padding: 40px 0px;
+        .collections{
+            margin-top: 20px;
+        }
+
+        .stats{
+            ul > li{
+                padding: 5px 0px;
+                font-size: 1em;
+                b{
+                    font-size: 1.2em;
+                }
+
+            }
+        }
+    }
+
+    .connections{
+        padding: 40px 0px;
+        .card-profile{
+            text-align: left;
+        }
+    }
+
+    .tab-content{
+        .collections{
+            .card .card-body{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .badge{
+                    display: inline-table;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+
+.landing-page {
+  .page-header {
+    &::before {
+      background: rgba(0,0,0, .2);
+    }
+  }
+}
+
+.login-page {
+  .footer {
+    position: absolute;
+    width: 100%;
+    background: transparent;
+    bottom: 0;
+    color: $white-color;
+    z-index: 1;
+
+    .copyright a{
+      color: $white-color;
+    }
+  }
+
+  .page-header {
+    height: 100%;
+    min-height: -webkit-fill-available;
+
+    &::before {
+      background: rgba(0,0,0, .2);
+    }
+
+    > .container {
+      padding-top: 100px;
+      padding-bottom: 150px;
+    }
+  }
+
+}

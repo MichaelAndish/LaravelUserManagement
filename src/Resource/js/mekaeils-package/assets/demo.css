@@ -1,0 +1,206 @@
+.tim-row{
+    margin-bottom: 20px;
+}
+
+.title{
+    margin-top: 30px;
+    margin-bottom: 25px;
+    min-height: 32px;
+}
+
+#tooltips .md-button{
+  margin-left: 6px;
+}
+
+#notifications .alert {
+  border-radius: 0;
+}
+
+.tim-typo{
+    padding-left: 25%;
+    margin-bottom: 40px;
+    position: relative;
+    width: 100%;
+}
+.tim-typo .tim-note{
+    bottom: 5px;
+    color: #c0c1c2;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    left: 0;
+    margin-left: 20px;
+    position: absolute;
+    width: 260px;
+}
+.tim-row{
+    padding-top: 50px;
+}
+.tim-row h3{
+    margin-top: 0;
+}
+#typography h1, #typography h2, #typography h3,
+#typography h4, #typography h5, #typography h6{
+    margin-bottom: 0;
+}
+
+.space{
+    height: 130px;
+    display: block;
+}
+.space-110{
+    height: 110px;
+    display: block;
+}
+.space-50{
+    height: 50px;
+    display: block;
+}
+.space-70{
+    height: 70px;
+    display: block;
+}
+
+.navigation-example{
+    background-position: center center;
+    background-size: cover;
+    margin-top:0;
+    min-height: 740px;
+}
+#notifications{
+    background-color: #FFFFFF;
+    display: block;
+    width: 100%;
+    position: relative;
+}
+#notifications .alert-danger{
+    margin-bottom: 0px;
+}
+.tim-note{
+    text-transform: capitalize;
+}
+
+#buttons .md-button{
+    margin: 0 2px 15px;
+}
+.space-100{
+    height: 100px;
+    display: block;
+    width: 100%;
+}
+
+.separator{
+    content: "Separator";
+    color: #FFFFFF;
+    display: block;
+    width: 100%;
+    padding: 20px;
+}
+.separator-line{
+    background-color: #EEE;
+    height: 1px;
+    width: 100%;
+    display: block;
+}
+.separator.separator-gray{
+    background-color: #EEEEEE;
+}
+
+.img-container{
+    width: 100%;
+    overflow: hidden;
+}
+.img-container img{
+    width: 100%;
+}
+
+#images h4{
+    margin-bottom: 30px;
+}
+#javascriptComponents{
+    padding-bottom: 0;
+}
+
+.sharing-area{
+    margin-top: 80px;
+}
+.sharing-area .md-button{
+    margin: 15px 4px 0;
+    color: #FFFFFF;
+}
+
+#navbar{
+    margin-bottom: -20px;
+}
+
+.section-notifications{
+    padding: 0;
+}
+.section-navbars{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#navigation .md-toolbar{
+    border-radius: 0;
+}
+
+#navigation .md-dark,
+#menu,
+#menu .md-primary {
+  z-index: 9999;
+  position: relative;
+}
+
+.section-tabs{
+    background: #EEEEEE;
+}
+.section-pagination{
+    padding-bottom: 0;
+}
+.section-download h4{
+    margin-bottom: 50px;
+}
+.section-examples h5{
+    margin-top: 30px;
+}
+
+
+.leaf1,
+.leaf3,
+.leaf4,
+.leaf2 {
+  position: absolute;
+  z-index: 9;
+}
+
+.leaf4 {
+  right: 172px;
+  top: -122px;
+  width: 17%;
+  width: 32%;
+  transform: rotate(-83deg);
+}
+
+.leaf3 {
+  top: 21px;
+  right: -69px;
+  left: auto;
+  width: 24%;
+  transform: rotate(-13deg);
+}
+
+.leaf2 {
+  width: 25%;
+  left: 170px;
+  top: -28px;
+  transform: rotate(90deg);
+}
+
+.leaf1 {
+  transform: rotate(0deg);
+  right: auto;
+  top: 25px;
+  width: 15%;
+  left: -11px;
+}

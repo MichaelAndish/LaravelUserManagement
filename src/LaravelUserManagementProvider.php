@@ -70,6 +70,15 @@ class LaravelUserManagementProvider extends ServiceProvider
 
             ]);
 
+            if(config('laravel_user_management.vue_theme'))
+            {
+                $this->publishes([
+                    // VUE.JS
+                    __DIR__ . '/Resource/views/js/'    => resource_path('js'),
+
+                ]);
+            }
+
     }
 
     /**

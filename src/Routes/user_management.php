@@ -184,3 +184,18 @@
         });
             
     }
+    
+    /*
+    |--------------------------------------------------------------------------
+    | WE USE THIS SECTION FOR VUE.JS 
+    |--------------------------------------------------------------------------
+    |
+    |
+    */    
+
+    if(config('laravel_user_management.vue_theme'))
+    {
+        Route::get('/laravel-user-management', function () {
+            return view('mekaeils-package.vue.master');
+        });
+    }
