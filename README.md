@@ -411,42 +411,55 @@ Add this command in webpack file:
 ```
 mix.js('resources/js/mekaeils-package/main.js', 'public/mekaeils-package');
 ```
+Edit your config file:
+```
+        /** 
+         *  IN THIS PACKAGE WE USE THE VUE.JS FOR PAGES IF YOU 
+         *  WANT TO USE IT, ENABLE IT AND FOLLOW INSTALLATION STEPS IN README FILE.
+         * **/       
+        
+        'vue_theme' => true,    //  true, false | default: false
+```
+
 
 ## VUE JS DEMO 
 
 1. App Vue
+
 ![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/vuejs/home.jpg)
 
 2. Login
+
 ![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/vuejs/login.jpg)
 
 3. Register
+
 ![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/vuejs/register.jpg)
 
 4. Material Kit Theme
-![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/vuejs/material-kit.jpg)
+
+![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/vuejs/meterialKit.jpg)
 
 
 
-
-============================================================================================
 #   UPDATES 
-============================================================================================
+===
+
 0. UPDATE PACKAGE FOR NEW VERSION OF THE LARAVEL => LARAVEL 6
 
 1. VUE.JS FOR AUTH AND OTHER PAGES. (just vuejs theme without functinality like Auth,...)
 
 
-============================================================================================
+
 #   IN PROGRESS 
-============================================================================================
+===
 
 1. Adding functionality Auth in Vuejs theme.
 2. Edit structure method for API response.
 
 
 ## License
-
+===
 
 1. The LaravelUserManagement is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 

@@ -16,8 +16,8 @@
         "spatie/laravel-permission": "^2.37|^3.0"
     },
     "suggest": {
-        "Laravel User Management Routes": "Because of changing the route file please replace user_management.php if you you want to update version 0.6.5 or less than 0.6.5",
-        "Vue js master file": "Add vue folder in views resource if you you want to update version 0.6.5 or less than 0.6.5"
+        "Laravel User Management Routes": "Because of changing the route file please replace user_management.php if you want to update version 0.6.5 or less than 0.6.5",
+        "Vue js master file": "Add vue folder in views resource if you want to update version 0.6.5 or less than 0.6.5"
     },
     "license": "MIT",
     "authors": [
