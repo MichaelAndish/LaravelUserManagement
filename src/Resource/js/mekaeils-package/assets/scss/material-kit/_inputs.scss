@@ -1,0 +1,294 @@
+// -----
+// Inputs
+.md-field{
+
+  .md-input,
+  .md-textarea{
+    height: 36px;
+    padding: 7px 0;
+    font-size: 14px !important;
+    -webkit-text-fill-color: $black-color !important;
+    appearance: none;
+  }
+
+  & > .fas ~ .md-input,
+  & > .fab ~ .md-input,
+  & > .fa ~ .md-input {
+    margin-left: 12px;
+  }
+
+  & > .fas,
+  & > .fab,
+  & > .fa {
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    position: relative;
+    top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .4s cubic-bezier(.25,.8,.25,1);
+  }
+
+  &.has-white {
+    &:not(.md-disabled):after,
+    &:before {
+      background-color: $white-color !important;
+    }
+
+    label {
+      color: $white-color !important;
+    }
+
+    .md-input {
+      -webkit-text-fill-color: $white-color !important;
+      color: $white-color !important;
+    }
+  }
+
+  @include inputs-color('green', $brand-success);
+  @include inputs-color('danger', $brand-danger);
+  @include inputs-color('warning', $brand-warning);
+  @include inputs-color('rose', $brand-rose);
+  @include inputs-color('info', $brand-info);
+  @include inputs-color('primary', $brand-primary);
+
+  &.md-has-textarea:not(.md-autogrow).md-focused .md-textarea, &.md-has-textarea:not(.md-autogrow).md-has-value .md-textarea{
+    margin-top: 20px;
+    padding-top: 0;
+  }
+
+  &.md-valid{
+    label{
+      color: $brand-success !important;
+    }
+
+    &:before{
+      background-color: $brand-success !important;
+    }
+
+    .md-icon{
+      color: $brand-success !important;
+    }
+  }
+
+  &.md-error{
+    label{
+      color: $brand-danger !important;
+    }
+
+    &:before{
+      background-color: $brand-danger !important;
+    }
+
+    .md-icon{
+      color: $brand-danger !important;
+    }
+  }
+
+  &.md-has-textarea:not(.md-autogrow) {
+    .md-textarea {
+      min-height: 85px;
+
+    }
+
+    label{
+      left: 0;
+    }
+  }
+
+  &.md-focused label,
+  &.md-has-value label{
+    top: -1rem;
+  }
+
+  .md-helper-text{
+    color: #6c757d !important;
+    bottom: 18px;
+    opacity: 0;
+    font-size: .75rem;
+    visibility: hidden;
+  }
+
+  .md-input{
+    @include material-placeholder{
+      font-size: 14px;
+      color: #aaa !important;
+    };
+  }
+
+  &.md-focused{
+    .md-helper-text{
+      opacity: 1;
+      bottom: -10px;
+      visibility: visible;
+    }
+  }
+
+  .sidebar &.md-theme-default.md-focused .md-input{
+    color: $white-color !important;
+    -webkit-text-fill-color: $white-color !important;
+  }
+
+
+  label{
+    font-size: 14px;
+    font-weight: 400;
+    color: $mdb-input-placeholder-color !important;
+    line-height: 1.4;
+    top: 26px;
+  }
+
+  &.md-disabled{
+    .md-input{
+      cursor: not-allowed;
+    }
+
+    &:after{
+      border-bottom: 1px dotted #d2d2d2;
+      background-color: transparent!important;
+      background-image: none !important;
+    }
+  }
+
+  &:not(.md-disabled):after{
+    background-color: #d2d2d2 !important;
+  }
+
+  &:before{
+    background-color: $brand-primary !important;
+  }
+
+  &.md-focused label,
+  &.md-has-value label,
+  &.md-focused.md-has-value label{
+    font-size: .6875rem;
+  }
+
+  &.md-has-textarea:not(.md-autogrow):after,
+  &.md-has-textarea:not(.md-autogrow):before{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid transparent;
+    border-color: #d2d2d2 !important;
+  }
+
+  &.md-has-textarea:not(.md-autogrow):before{
+    border-bottom: 2px solid transparent;
+    border-color: $brand-success !important;
+    transform: scaleX(.12);
+  }
+
+  &.md-has-textarea:not(.md-autogrow).md-focused label,
+  &.md-has-textarea:not(.md-autogrow).md-has-value label{
+    top: 0;
+  }
+
+  &.md-focused.md-has-textarea:not(.md-autogrow):before{
+    transform: scaleX(1);
+  }
+}
+
+.md-field .md-input-action{
+  top: 0;
+  border-radius: 50%;
+  width: 32px !important;
+  height: 32px !important;
+  background-color: $white-color !important;
+
+  .md-button-content i{
+    width: 18px;
+    height: 18px;
+
+    svg{
+      fill: $gray-light !important;
+    }
+  }
+}
+
+.md-field{
+  padding-bottom: 10px;
+  padding-top: 0;
+  margin: 13px 0 0;
+  min-height: auto;
+
+  &.md-focused label,
+  &.md-field.md-has-value label{
+    top: -.8rem;
+  }
+
+  &.md-focused > .fa,
+  &.md-focused > .md-icon,
+  &.md-focused > .fas,
+  &.md-focused > .fab {
+
+    color: $brand-primary !important;
+  }
+
+  .success.md-icon,
+  .error.md-icon{
+    transition: none;
+    position: absolute;
+    right: 0;
+    top: 3px;
+    font-size: 20px !important;
+
+    &:after{
+      display: none;
+    }
+  }
+
+  &:after,
+  &:before{
+    bottom: 10px;
+  }
+
+  label{
+    top: 9px;
+  }
+
+  &.md-form-group,
+  &.md-datepicker{
+    > .md-icon{
+      margin: 6px 0;
+      color: inherit;
+
+      &:after{
+        display: none;
+      }
+    }
+
+
+    &:after,
+    &:before{
+      width: calc(100% - 36px);
+      margin-left: auto;
+    }
+  }
+}
+
+.form-control-static{
+  margin: 0;
+}
+
+.form-category{
+  color: #333;
+}
+
+.md-label-on-right {
+  padding: 20px 5px 0 0;
+  text-align: left;
+
+  code{
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+  }
+}
+
+textarea {
+  resize: none;
+}

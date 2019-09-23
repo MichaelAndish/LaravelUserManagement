@@ -1,0 +1,113 @@
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .2);
+  display: table;
+  transition: opacity .15s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.picture{
+  max-width: 150px;
+
+  img{
+    border-radius: 6px;
+  }
+}
+
+.modal-title{
+  margin: 0;
+  line-height: 1.5;
+}
+
+.modal-body{
+  padding: 24px 24px 16px;
+
+  p{
+    margin-top: 0;
+  }
+}
+
+.modal-container {
+  max-width: 500px;
+  margin: 0px auto;
+  position: relative;
+  background-color: #fff;
+  transition: all .3s ease;
+  box-shadow: 0 27px 24px 0 rgba(0,0,0,.2), 0 40px 77px 0 rgba(0,0,0,.22);
+  border-radius: 6px;
+  border: none;
+}
+
+.modal-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 24px 0;
+  border-top-left-radius: .3rem;
+  border-top-right-radius: .3rem;
+
+  .md-button .md-button-content i{
+    font-size: 16px !important;
+    opacity: .5;
+
+    &:hover,
+    &:focus{
+      opacity: 1;
+    }
+  }
+}
+
+.modal-footer{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 24px;
+  padding-top: 0;
+
+  .md-button{
+    margin: 0;
+    .md-ripple{
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+      width: auto;
+    }
+  }
+}
+
+.notice-modal + .modal-mask .modal-footer,
+.small-alert-modal + .modal-mask .modal-footer{
+  justify-content: center;
+}
+
+.instruction{
+  margin-bottom: 25px;
+}
+
+.small-alert-modal + .modal-mask .modal-container{
+  width: 300px;
+  margin: 0 auto;
+
+  .modal-body{
+    margin-top: 20px;
+  }
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-default-button {
+  position: absolute !important;
+  right: 9px;
+  top: 12px;
+}
