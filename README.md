@@ -250,6 +250,23 @@ public function run()
     5.2     php artisan db:seed
 ```
 
+8. If you want to use Vue.js, change "laravel_user_management" config file:
+
+```
+        /** 
+         *  IN THIS PACKAGE WE USE THE VUE.JS FOR PAGES IF YOU 
+         *  WANT TO USE IT, ENABLE IT AND FOLLOW INSTALLATION STEPS IN README FILE.
+         * **/       
+
+        'vue_theme' => true, 
+```
+Then run this command again: 
+```
+php artisan vendor:publish --provider="Mekaeil\LaravelUserManagement\LaravelUserManagementProvider" 
+```
+
+Now follow <b> USE VUE.JS FOR YOUR PROJECT </b> section in bottom of this page.
+
 ## Important
 
     After vendor:publish files you should change user migration file, because we set
