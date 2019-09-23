@@ -1,0 +1,58 @@
+/*!
+
+ =========================================================
+ * Vue Material Kit - v1.2.0
+ =========================================================
+
+ * Product Page: http://www.creative-tim.com/product/vue-material-kit
+ * Copyright 2019 Creative Tim (http://www.creative-tim.com)
+ * Licensed under MIT (https://github.com/creativetimofficial/vue-material-kit/blob/master/LICENSE.md)
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+ */
+
+
+//variables and mixins
+@import "material-kit/variables";
+@import "material-kit/mixins";
+@import "material-kit/shadows";
+
+//plugin css
+@import "material-kit/plugins/_perfect-scrollbar";
+@import "material-kit/plugins/_plugin-nouislider";
+
+// Core CSS
+@import "material-kit/typography";
+@import "material-kit/buttons";
+@import "material-kit/carousel";
+@import "material-kit/autocomplete";
+@import "material-kit/misc";
+@import "material-kit/images";
+@import "material-kit/info-areas";
+@import "material-kit/datepicker";
+@import "material-kit/inputs";
+@import "material-kit/badges";
+@import "material-kit/progress";
+@import "material-kit/alerts";
+@import "material-kit/tables";
+@import "material-kit/layout";
+@import "material-kit/headers";
+@import "material-kit/example-pages";
+@import "material-kit/checkboxes";
+@import "material-kit/togglebutton";
+@import "material-kit/pagination";
+@import "material-kit/radios";
+@import "material-kit/pills";
+@import "material-kit/dialogs";
+@import "material-kit/navbars";
+@import "material-kit/popups";
+@import "material-kit/footers";
+
+// Fancy Stuff
+@import "material-kit/dropdown";
+@import "material-kit/cards";
+@import "material-kit/tabs";
+@import "material-kit/responsive";

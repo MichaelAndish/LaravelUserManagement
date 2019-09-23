@@ -9,22 +9,21 @@
     <meta name="author" content="">
 
     <title>Laravel User Management | Vue.js</title>
-     
+    
+    <!--  Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 </head>
 
 <body>
-  <div id="app">
-      <div id="material-kit">
-        <div :class="{ 'nav-open': NavbarStore.showNavbar }">
-          <router-view name="header" />
-          <div>
-            <router-view />
-          </div>
-          <router-view name="footer" />
-        </div>
-      </div>
-  </div>
-  <script src="/mekaeils-package/main.js"></script>
+    <div id="app">
+        <router-view></router-view>
+    </div>
+
+  <script src="{{ asset('mekaeils-package/main.js') }}"></script>
 </body>
+
+
 
 </html>

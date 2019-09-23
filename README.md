@@ -407,6 +407,26 @@ After installing package follow this steps:
     }
 ```
 
+Add this command in webpack file:
+```
+mix.js('resources/js/mekaeils-package/main.js', 'public/mekaeils-package');
+```
+
+## VUE JS DEMO 
+
+1. App Vue
+![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/vuejs/home.jpg)
+
+2. Login
+![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/vuejs/login.jpg)
+
+3. Register
+![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/vuejs/register.jpg)
+
+4. Material Kit Theme
+![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/vuejs/material-kit.jpg)
+
+
 
 
 ============================================================================================
@@ -414,8 +434,15 @@ After installing package follow this steps:
 ============================================================================================
 0. UPDATE PACKAGE FOR NEW VERSION OF THE LARAVEL => LARAVEL 6
 
-1. ENABLE VUE.JS FOR AUTH AND OTHER PAGES
+1. VUE.JS FOR AUTH AND OTHER PAGES. (just vuejs theme without functinality like Auth,...)
 
+
+============================================================================================
+#   IN PROGRESS 
+============================================================================================
+
+1. Adding functionality Auth in Vuejs theme.
+2. Edit structure method for API response.
 
 
 ## License

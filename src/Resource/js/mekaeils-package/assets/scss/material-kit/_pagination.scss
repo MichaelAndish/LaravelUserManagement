@@ -1,0 +1,125 @@
+.page-link{
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: 0;
+  line-height: 1.25;
+  color: #2196f3;
+  background-color: transparent;
+  border: 0 solid #dee2e6;
+}
+
+.no-arrows{
+  display: none;
+}
+
+.pagination{
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: .25rem;
+
+    > .page-item > .page-link,
+    > .page-item > span{
+        border: 0;
+        border-radius: 30px !important;
+        transition: all .3s;
+        margin: 0 3px;
+        padding: 0;
+        min-width: 30px;
+        height: 30px;
+        line-height: 30px;
+        color: $gray-color;
+        font-weight: $font-weight-default;
+        font-size: $mdb-btn-font-size-base;
+        text-transform: uppercase;
+        background: transparent;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover,
+        &:focus{
+            color: $gray-color !important;
+        }
+    }
+
+    > .page-item.active > a,
+    > .page-item.active > span{
+        color: $gray-color;
+
+        &,
+        &:focus,
+        &:hover{
+            background-color: $brand-primary;
+            border-color: $brand-primary;
+            color: $white-color !important;
+            @include shadow-4dp-color($brand-primary);
+        }
+
+    }
+
+    // Colors
+    &.pagination-info{
+        > .page-item.active > a,
+        > .page-item.active > span{
+            &,
+            &:focus,
+            &:hover{
+                background-color: $brand-info;
+                border-color: $brand-info;
+                @include shadow-4dp-color($brand-info);
+            }
+        }
+    }
+
+    &.pagination-success{
+        > .page-item.active > a,
+        > .page-item.active > span{
+            &,
+            &:focus,
+            &:hover{
+                background-color: $brand-success;
+                border-color: $brand-success;
+                @include shadow-4dp-color($brand-success);
+            }
+        }
+    }
+    &.pagination-rose{
+        > .page-item.active > a,
+        > .page-item.active > span{
+            &,
+            &:focus,
+            &:hover{
+                background-color: $brand-rose;
+                border-color: $brand-rose;
+                @include shadow-4dp-color($brand-rose);
+            }
+        }
+    }
+
+    &.pagination-warning{
+        > .page-item.active > a,
+        > .page-item.active > span{
+            &,
+            &:focus,
+            &:hover{
+                background-color: $brand-warning;
+                border-color: $brand-warning;
+                @include shadow-4dp-color($brand-warning);
+            }
+        }
+    }
+
+    &.pagination-danger{
+        > .page-item.active > a,
+        > .page-item.active > span{
+            &,
+            &:focus,
+            &:hover{
+                background-color: $brand-danger;
+                border-color: $brand-danger;
+                @include shadow-4dp-color($brand-danger);
+            }
+        }
+    }
+}
