@@ -74,7 +74,7 @@ class LaravelUserManagementProvider extends ServiceProvider
             {
                 $this->publishes([
                     // VUE.JS
-                    __DIR__ . '/Resource/views/js/mekaeils-package'    => resource_path('js/'),
+                    __DIR__ . '/Resource/js/mekaeils-package/'    => resource_path('js/mekaeils-package'),
 
                 ]);
             }
