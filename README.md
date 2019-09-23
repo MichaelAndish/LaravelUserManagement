@@ -443,7 +443,6 @@ Edit your config file:
 
 
 #   UPDATES 
-===
 
 0. UPDATE PACKAGE FOR NEW VERSION OF THE LARAVEL => LARAVEL 6
 
@@ -452,14 +451,12 @@ Edit your config file:
 
 
 #   IN PROGRESS 
-===
 
 1. Adding functionality Auth in Vuejs theme.
 2. Edit structure method for API response.
 
 
 ## License
-===
 
 1. The LaravelUserManagement is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
