@@ -65,6 +65,9 @@ public function run()
         * **/
     // laravel_user_management.user_department_user_table
     'user_department_user_table' =>  'user_departments_users',
+
+    // laravel_user_management.password_resets_table
+    'password_resets_table'      => 'user_password_resets',
     
     // laravel_user_management.user_model    
     'user_model'            => App\Entities\User::class,
@@ -244,13 +247,121 @@ public function run()
     'store' => 'default',
 ],
 ```
-7. After all of the steps run these commands ordinary.
+
+7. update your config/auth.php file:
+```
+use App\Entities\User;
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Authentication Defaults
+    |--------------------------------------------------------------------------
+    |
+    | This option controls the default authentication "guard" and password
+    | reset options for your application. You may change these defaults
+    | as required, but they're a perfect start for most applications.
+    |
+    */
+
+    'defaults' => [
+        'guard'     => 'web',
+        'passwords' => 'users',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Authentication Guards
+    |--------------------------------------------------------------------------
+    |
+    | Next, you may define every authentication guard for your application.
+    | Of course, a great default configuration has been defined for you
+    | here which uses session storage and the Eloquent user provider.
+    |
+    | All authentication drivers have a user provider. This defines how the
+    | users are actually retrieved out of your database or other storage
+    | mechanisms used by this application to persist your user's data.
+    |
+    | Supported: "session", "token"
+    |
+    */
+
+    'guards' => [
+        'web' => [
+            'driver'    => 'session',
+            'provider'  => 'users',
+        ],
+
+        'api' => [
+            'driver'    => 'token',
+            'provider'  => 'users',
+            'hash'      => false,
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | User Providers
+    |--------------------------------------------------------------------------
+    |
+    | All authentication drivers have a user provider. This defines how the
+    | users are actually retrieved out of your database or other storage
+    | mechanisms used by this application to persist your user's data.
+    |
+    | If you have multiple user tables or models you may configure multiple
+    | sources which represent each model / table. These sources may then
+    | be assigned to any extra authentication guards you have defined.
+    |
+    | Supported: "database", "eloquent"
+    |
+    */
+
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model'  => User::class,
+        ],
+
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Resetting Passwords
+    |--------------------------------------------------------------------------
+    |
+    | You may specify multiple password reset configurations if you have more
+    | than one user table or model in the application and you want to have
+    | separate password reset settings based on the specific user types.
+    |
+    | The expire time is the number of minutes that the reset token should be
+    | considered valid. This security feature keeps tokens short-lived so
+    | they have less time to be guessed. You may change this as needed.
+    |
+    */
+
+    'passwords' => [
+        'users' => [
+            'provider'  => 'users',
+            'table'     => config('laravel_user_management.password_resets_table'),
+            'expire'    => 60,
+        ],
+    ],
+
+];
+```
+
+8. After all of the steps run these commands ordinary.
 ```
     5.1     php artisan migrate
     5.2     php artisan db:seed
 ```
 
-8. If you want to use Vue.js, change "laravel_user_management" config file:
+9. If you want to use Vue.js, change "laravel_user_management" config file:
 
 ```
         /** 
