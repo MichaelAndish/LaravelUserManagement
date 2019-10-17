@@ -111,8 +111,8 @@
                 </div>
             </li> --}}
             <li class="nav-item nav-logout d-none d-lg-block">
-                <a class="nav-link" href="#">
-                <i class="mdi mdi-power"></i>
+                <a class="nav-link" href="{{ url(config('laravel_user_management.auth.logout_url')) }}">
+                    <i class="mdi mdi-power"></i>
                 </a>
             </li>
         </ul>
