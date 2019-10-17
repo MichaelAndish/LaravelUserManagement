@@ -20,6 +20,10 @@ return [
          * **/
         // laravel_user_management.user_department_user_table
         'user_department_user_table' =>  'user_departments_users',
+
+        // laravel_user_management.password_resets_table
+        'password_resets_table'      => 'user_password_resets',
+
         
         // laravel_user_management.user_model    
         'user_model'            => App\Entities\User::class,
