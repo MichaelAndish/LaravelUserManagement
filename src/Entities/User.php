@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use Notifiable, HasRoles, SoftDeletes;
 
+    protected $guard_name =  'web';
+
     protected $fillable = [
         'first_name',
         'last_name',
@@ -22,7 +24,6 @@ class User extends Authenticatable
         'email_verified',
         'mobile_verified',        
     ];
-
 
     /**
      * @param $password
