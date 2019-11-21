@@ -577,7 +577,6 @@ Edit your config file:
 1. VUE.JS FOR AUTH AND OTHER PAGES. (just vuejs theme without functinality like Auth,...)
 
 
-
 #   IN PROGRESS 
 
 1. Adding functionality Auth in Vuejs theme.
