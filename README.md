@@ -584,6 +584,13 @@ Edit your config file:
 2. Edit structure method for API response.
 
 
+## TEST
+With this command you can running the test.
+
+```
+    ./vendor/bin/phpunit
+```
+
 ## License
 
 1. The LaravelUserManagement is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
