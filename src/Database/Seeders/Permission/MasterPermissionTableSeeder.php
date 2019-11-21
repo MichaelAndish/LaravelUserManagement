@@ -1,6 +1,6 @@
 <?php
 
-namespace Mekaeil\LaravelUserManagement\seeders\Permission;
+namespace Mekaeil\LaravelUserManagement\Seeders\Permission;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;

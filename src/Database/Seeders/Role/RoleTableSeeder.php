@@ -1,7 +1,6 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use Mekaeil\LaravelUserManagement\seeders\Permission\MasterRoleTableSeeder;
+use Mekaeil\LaravelUserManagement\Seeders\Permission\MasterRoleTableSeeder;
 class RoleTableSeeder extends MasterRoleTableSeeder
 {
     protected $roles = [

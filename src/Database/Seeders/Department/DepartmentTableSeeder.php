@@ -1,6 +1,6 @@
 <?php
 
-use Mekaeil\LaravelUserManagement\seeders\Department\MasterDepartmentTableSeeder;
+use Mekaeil\LaravelUserManagement\Seeders\Department\MasterDepartmentTableSeeder;
 
 class DepartmentTableSeeder extends MasterDepartmentTableSeeder
 {

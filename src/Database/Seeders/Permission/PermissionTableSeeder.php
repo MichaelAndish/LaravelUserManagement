@@ -1,7 +1,6 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use Mekaeil\LaravelUserManagement\seeders\Permission\MasterPermissionTableSeeder;
+use Mekaeil\LaravelUserManagement\Seeders\Permission\MasterPermissionTableSeeder;
 
 class PermissionTableSeeder extends MasterPermissionTableSeeder
 {
