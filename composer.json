@@ -35,6 +35,11 @@
           "Mekaeil\\LaravelUserManagement\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Mekaeil\\LaravelUserManagement\\Test\\": "tests/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [

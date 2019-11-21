@@ -1,4 +1,6 @@
-﻿<?php
+<?php
+
+namespace Mekaeil\LaravelUserManagement\Test;
 
 use PHPUnit\Framework\TestCase;
 

@@ -388,13 +388,6 @@ Now follow <b> USE VUE.JS FOR YOUR PROJECT </b> section in bottom of this page.
         $table->string('mobile')->nullable()->unique();
     ```
 
-## TEST
-With this command you can running the test.
-
-```
-    ./vendor/bin/phpunit
-```
-
 ## Routes
 After install package you can set this routes on your admin panel:
 
@@ -590,6 +583,13 @@ Edit your config file:
 1. Adding functionality Auth in Vuejs theme.
 2. Edit structure method for API response.
 
+
+## TEST
+With this command you can running the test.
+
+```
+    ./vendor/bin/phpunit
+```
 
 ## License
 
