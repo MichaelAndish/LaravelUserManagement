@@ -32,9 +32,16 @@
     ],
     "autoload": {
         "psr-4": {
-          "Mekaeil\\LaravelUserManagement\\": "src/",
-          "Mekaeil\\LaravelUserManagement\\Test\\": "tests/"
+          "Mekaeil\\LaravelUserManagement\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mekaeil\\LaravelUserManagement\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
     },
     "extra": {
         "laravel": {
