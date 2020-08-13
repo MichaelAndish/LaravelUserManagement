@@ -74,7 +74,7 @@ class UsersController extends Controller
             'email'         => $request->email,
             'mobile'        => $request->mobile,
             'status'        => $request->status ?? 'pending',
-            'password'      => bcrypt($request->password)
+            'password'      => $request->password
         ]);
     
         $roles       = $request->roles       ?? [];
