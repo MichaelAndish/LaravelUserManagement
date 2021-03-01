@@ -1,5 +1,7 @@
 <?php
 
+namespace Mekaeil\LaravelUserManagement\Database\Seeders\Permission;
+
 use Mekaeil\LaravelUserManagement\Seeders\Permission\MasterPermissionTableSeeder;
 
 class PermissionTableSeeder extends MasterPermissionTableSeeder

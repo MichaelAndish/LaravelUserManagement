@@ -1,6 +1,9 @@
 <?php
 
+namespace Mekaeil\LaravelUserManagement\Database\Seeders\Role;
+
 use Mekaeil\LaravelUserManagement\Seeders\Permission\MasterRoleTableSeeder;
+
 class RoleTableSeeder extends MasterRoleTableSeeder
 {
     protected $roles = [

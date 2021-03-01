@@ -1,6 +1,6 @@
 <?php
 
-namespace Mekaeil\LaravelUserManagement\Seeders\Department;
+namespace Mekaeil\LaravelUserManagement\Database\Seeders\Department;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
