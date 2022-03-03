@@ -1,8 +1,8 @@
 {
-    "name": "mekaeil/laravel-user-management",
+    "name": "linkbee/laravel-user-management",
     "description": "With this package we can manage all of the users in our project.",
     "type": "project",
-    "homepage": "https://mekaeil.me",
+    "homepage": "https://linkbee.com",
     "keywords": [
         "Project",
         "laravel",
