@@ -1,53 +1,53 @@
 {
-    "name": "mekaeil/laravel-user-management",
-    "description": "With this package we can manage all of the users in our project.",
-    "type": "project",
-    "homepage": "https://mekaeil.me",
-    "keywords": [
-        "Project",
-        "laravel",
-        "User Management",
-        "Spatie",
-        "laravel permission"
-    ],
-    "require": {
-        "php": "^7.2.5",
-        "laravel/framework": "^5.5|^6.0|^7.0|^8.0",
-        "spatie/laravel-permission": "^2.37|^3.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^7.5|^8.0",
-        "mockery/mockery": "^1.0"
-    },    
-    "suggest": {
-        "Laravel User Management Routes": "Because of changing the route file please replace user_management.php if you want to update version 0.6.5 or less than 0.6.5",
-        "Vue js master file": "Add vue folder in views resource if you want to update version 0.6.5 or less than 0.6.5"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "mekaeil",
-            "email": "maikel1370@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-          "Mekaeil\\LaravelUserManagement\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Mekaeil\\LaravelUserManagement\\Test\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "phpunit"
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Mekaeil\\LaravelUserManagement\\LaravelUserManagementProvider"
-            ]
-        }
+  "name": "mekaeil/laravel-user-management",
+  "description": "With this package we can manage all of the users in our project.",
+  "type": "package",
+  "homepage": "https://mekaeil.me",
+  "keywords": [
+    "Project",
+    "laravel",
+    "User Management",
+    "Spatie",
+    "laravel permission"
+  ],
+  "require": {
+    "php": "^7.2.5|^8",
+    "laravel/framework": "^5.5|^6.0|^7.0|^8.0|^9.0|^10.0",
+    "spatie/laravel-permission": "^2.37|^3.0|^4.0|^5.0|^6.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5|^8.0|^9.0|^10.0|^11.0",
+    "mockery/mockery": "^1.0"
+  },
+  "suggest": {
+    "LaraPanel Framework": "Use the new version and refactored version here: https://github.com/weprodev/LaraPanel-Framework",
+    "LaraPanel package": "Use the new version and refactored version here: https://github.com/weprodev/LaraPanel"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "mekaeil",
+      "email": "maikel1370@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Mekaeil\\LaravelUserManagement\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Mekaeil\\LaravelUserManagement\\Test\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Mekaeil\\LaravelUserManagement\\LaravelUserManagementProvider"
+      ]
+    }
+  }
 }

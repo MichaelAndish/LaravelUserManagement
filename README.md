@@ -1,11 +1,12 @@
-<p style="width: 30em;text-align:left;">
 
-![image](https://github.com/Mekaeil/LaravelUserManagement/blob/master/src/Public/mekaeils-package/images/logo-user-management.jpg)
+# Use the new version 
+I've upgraded and revamped this package for better performance and efficiency. Check out the improvements here ([LaraPanel Framework](https://github.com/weprodev/LaraPanel-Framework)). 
 
-</p>
+Plus, I'm gearing up to introduce even more features. Join me in enhancing it further – follow and contribute here: [LaraPanel Package](https://github.com/weprodev/LaraPanel)"
 
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+<br>
 
+-------------------------------------
 ## About Laravel User Management
 
 Manage all of the users, we use ["spatie/laravel-permission"](https://github.com/spatie/laravel-permission) package for manage all of the users. 
